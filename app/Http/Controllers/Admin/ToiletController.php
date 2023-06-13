@@ -46,11 +46,11 @@ class ToiletController extends Controller
                     'status' => 'error',
                     'message' => $errors->first('title'),
                 ]);
-            // } elseif ($errors->has('category')) {
-            //     return response()->json([
-            //         'status' => 'error',
-            //         'message' => $errors->first('category'),
-            //     ]);
+                // } elseif ($errors->has('category')) {
+                //     return response()->json([
+                //         'status' => 'error',
+                //         'message' => $errors->first('category'),
+                //     ]);
             } elseif ($errors->has('description')) {
                 return response()->json([
                     'status' => 'error',
@@ -105,7 +105,7 @@ class ToiletController extends Controller
     }
 
     public function update(Request $request, Toilet $toilet)
-    {   
+    {
         $validators = Validator::make($request->all(), [
             'title' => 'required|string|max:255|',
             // 'category' => 'required',
@@ -158,7 +158,7 @@ class ToiletController extends Controller
             $filename = $file->getClientOriginalName();
             $file->move('images/panen', $filename);
         }
-        $toilet  ->update([
+        $toilet->update([
             'title' => $request->title,
             // 'category' => $request->category,
             'description' => $request->description,
@@ -174,14 +174,14 @@ class ToiletController extends Controller
         ]);
     }
 
-    public function destroy(Toilet $toilet  )
+    public function destroy(Toilet $toilet)
     {
-        $file = public_path('images/panen/' . $toilet    ->cover);
+        $file = public_path('images/panen/' . $toilet->cover);
         if (file_exists($file)) {
             unlink($file);
         }
 
-        $toilet  ->delete();
+        $toilet->delete();
 
         return response()->json([
             'status' => 'success',

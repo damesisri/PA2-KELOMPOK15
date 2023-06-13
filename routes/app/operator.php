@@ -8,6 +8,7 @@ use App\Http\Controllers\Operator\DashboardController;
 use App\Http\Controllers\Operator\BookingController;
 use App\Http\Controllers\Operator\NotificationController;
 
+
 Route::prefix('operator/')->name('operator.')->group(function () {
     Route::prefix('auth')->name('auth.')->group(function () {
         Route::post('login', [AuthController::class, 'do_login'])->name('login');

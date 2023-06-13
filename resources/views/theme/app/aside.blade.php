@@ -61,12 +61,12 @@
                             <i class="ri-book-line"></i> <span data-key="t-books">Transaksi</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link menu-link" href="" role="button" aria-expanded="false"
                             aria-controls="sidebarDashboards">
                             <i class="ri-book-line"></i> <span data-key="t-books">History</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="{{ route('admin.kritik') }}" role="button"
                             aria-expanded="false" aria-controls="sidebarDashboards">
@@ -84,7 +84,7 @@
                         <a class="nav-link menu-link" href="{{ route('operator.hotel.index') }}" role="button"
                             aria-expanded="false" aria-controls="sidebarDashboards">
                             <i class="ri-shopping-bag-3-line"></i> <span data-key="t-books">Hotel</span>
-                        </a>
+                        </a>gi
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="{{ route('operator.order.index') }}" role="button"

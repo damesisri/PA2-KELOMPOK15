@@ -32,7 +32,7 @@ class OrderController extends Controller
     {
         $now = Carbon::now()->translatedFormat('l, d F Y');
         $orders = Order::orderBy('created_at', 'DESC')->get();
-        $pdf = PDF::loadView('pages.operator.orders.pdf', ['orders' => $orders]);
+        $pdf = PDF::loadView('pages.admin.orders.pdf', ['orders' => $orders]);
         // return $pdf->stream();
         return $pdf->download($now . '.pdf');
     }

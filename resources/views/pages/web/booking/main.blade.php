@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="banner-img"></div>
+        <div class="banner-img2"></div>
     </div>
     <div class="wave"></div>
 

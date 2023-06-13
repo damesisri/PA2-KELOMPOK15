@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="banner-img"></div>
+        <div class="banner-img2"></div>
     </div>
     <div class="wave"></div>
 
@@ -145,7 +145,7 @@
                                         <div class="col-md-6">
                                             <div class="field">
                                                 <input class="form-control" name="username" id="username"
-                                                    type="text" value="{{ old('username') }}"
+                                                    type="text" value="{{ old('username') ?? 'Your Name' }}"
                                                     onblur="if(this.value == '') { this.value='Your Name'}"
                                                     onfocus="if (this.value == 'Your Name') {this.value=''}">
                                             </div>

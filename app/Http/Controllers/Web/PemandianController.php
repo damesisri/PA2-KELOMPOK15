@@ -10,6 +10,7 @@ use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 use Illuminate\Support\Facades\Validator;
 
 class PemandianController extends Controller
@@ -31,6 +32,14 @@ class PemandianController extends Controller
     {
         $toilet = Toilet::find($id);
         return view('pages.web.booking.detail', compact('toilet'));
+    }
+
+    public function PDF()
+    {
+        $booking = Booking::all();
+        $pdf = PDF::loadview('pages.web.booking.pdf', compact('booking'));
+
+        return $pdf->download('laporan-booking.pdf');
     }
 
     // public function check(Toilet $toilet){

@@ -23,6 +23,7 @@ Route::group(['domain' => ''], function () {
         Route::get('penginapan/{id}/create', [PenginapanController::class, 'create'])->name('penginapan.create');
         Route::post('penginapan/{id}/store', [PenginapanController::class, 'store'])->name('penginapan.store')->middleware('auth');
         // Route::get('penginapan/booking', [PenginapanController::class, 'booking'])->name('penginapan.booking');
+        Route::post('penginapan/check', [PenginapanController::class, 'check'])->name('penginapan.check');
 
         Route::get('food', [FoodController::class, 'index'])->name('food');
         Route::get('food/{food}', [FoodController::class, 'detail'])->name('food.detail');
@@ -34,6 +35,8 @@ Route::group(['domain' => ''], function () {
         Route::get('pemandian/{id}/detail', [PemandianController::class, 'detail'])->name('booking.detail');
         Route::post('pemandian/{id}/book', [PemandianController::class, 'makeBooking'])->name('pemandian.book');
         Route::get('pemandian/create', [PemandianController::class, 'create'])->name('pemandian.create');
+        Route::get('pemandian/pdf', [PemandianController::class, 'pdf'])->name('pemandian.pdf');
+
 
         Route::get('kritik-saran', [KritikSaranController::class, 'index'])->name('kritik');
         Route::post('kritik-saran/store', [KritikSaranController::class, 'store'])->name('kritik.store');

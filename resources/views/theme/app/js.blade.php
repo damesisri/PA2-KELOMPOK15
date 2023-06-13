@@ -12,6 +12,12 @@
 <script src="{{ asset('js/plugin.js') }}"></script>
 <script src="{{ asset('js/method.js') }}"></script>
 <!-- apexcharts -->
+<script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+
+<!-- projects js -->
+<script src="{{ asset('assets/js/pages/dashboard-projects.init.js') }}"></script>
+<!-- Dashboard init -->
+<!-- apexcharts -->
 {{-- <script src="{{ asset('assets/pages/plugins/apexcharts.treemap.js') }}"></script> --}}
 @can('Admin')
     <script src="{{ URL::asset('js/app-admin.min.js') }}"></script>

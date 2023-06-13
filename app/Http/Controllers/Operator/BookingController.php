@@ -16,7 +16,14 @@ class BookingController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $booking = Booking::paginate(10);
+            $booking = Booking::where('user_id', 'like', '%' . $request->keyword . '%')
+                ->orWhere('toilet_id', 'like', '%' . $request->keyword . '%')
+                ->orWhere('username', 'like', '%' . $request->keyword . '%')
+                ->orWhere('book_date', 'like', '%' . $request->keyword . '%')
+                ->orWhere('book_time', 'like', '%' . $request->keyword . '%')
+                ->orWhere('person', 'like', '%' . $request->keyword . '%')
+                ->orWhere('status', 'like', '%' . $request->keyword . '%')
+                ->latest()->paginate(10);
             return view('pages.operator.booking.list', compact('booking'));
         }
         return view('pages.operator.booking.main');
@@ -103,12 +110,11 @@ class BookingController extends Controller
         ]);
     }
 
-    public function pdf()
+    public function PDF()
     {
-        $now = Carbon::now()->translatedFormat('l, d F Y');
-        $booking = Booking::orderBy('created_at', 'DESC')->get();
-        $pdf = PDF::loadView('pages.operator.booking.pdf', ['orders' => $booking]);
-        // return $pdf->stream();
-        return $pdf->download($now . '.pdf');
+        $booking = Booking::all();
+        $pdf = PDF::loadview('pages.operator.booking.pdf', compact('booking'));
+
+        return $pdf->download('laporan-booking.pdf');
     }
 }
