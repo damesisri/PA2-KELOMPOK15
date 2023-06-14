@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Reservation extends Model
 {
+<<<<<<< HEAD
     protected $table = 'reservations';
     protected $guarded = [''];
 
@@ -30,4 +31,8 @@ class Reservation extends Model
         $datediff = $checkout - $checkin;
         return round($datediff / (60 * 60 * 24));
     }
+=======
+    protected $table = 'reervation';
+    protected $fillable = ['name', 'availability', 'price'];
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
 }

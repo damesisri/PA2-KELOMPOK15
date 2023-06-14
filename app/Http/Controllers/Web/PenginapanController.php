@@ -28,6 +28,7 @@ class PenginapanController extends Controller
         return view('pages.web.hotel.detail', compact('hotel'));
     }
 
+<<<<<<< HEAD
     public function check(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -95,6 +96,44 @@ class PenginapanController extends Controller
             ]);
         }
     }
+=======
+    public function create($id, Request $request)
+    {
+        $this->setMeta('Booking');
+        $dates = explode(' > ', $request->date);
+
+        $adults = $request->adults;
+        $children = $request->children;
+        $checkin = Carbon::createFromFormat('d/m/Y', $dates[0])->format('Y-m-d');
+        $checkout = Carbon::createFromFormat('d/m/Y', $dates[1])->format('Y-m-d');
+        $hotel = Hotel::findOrFail($id);
+
+        $total = $hotel->price_per_night * $hotel->getDays($checkin, $checkout);
+        return view('pages.web.hotel.create', compact('hotel', 'checkin', 'checkout', 'adults', 'children', 'total'));
+    }
+
+
+    public function check(Request $request)
+    {
+        $hotel = Hotel::findOrFail($request->hotel_id);
+        $checkin = Carbon::parse($request->checkin);
+        $checkout = Carbon::parse($request->checkout);
+
+        if ($hotel->isAvailable($checkin, $checkout)) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Kamar tersedia',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Kamar tidak tersedia',
+            ]);
+        }
+    }
+
+
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
     // public function create($id, Request $request)
     // {
     //     $this->setMeta('Booking');
@@ -173,6 +212,7 @@ class PenginapanController extends Controller
     //     ]);
     // }
 
+<<<<<<< HEAD
     public function book(Request $request)
     {
         $hotelId = $request->input('hotel_id');
@@ -278,5 +318,29 @@ class PenginapanController extends Controller
         //     'message' => 'Bukti pembayaran berhasil diupload',
         // ]);
         return view('pages.web.hotel.payment')->with('success', 'Bukti pembayaran berhasil diupload');
+=======
+    public function checkAvailability(Request $request, $id)
+    {
+        // Ambil nilai input dari request
+        $checkinDate = $request->input('checkin');
+        $checkoutDate = $request->input('checkout');
+        $numberOfAdults = $request->input('adults');
+        $numberOfChildren = $request->input('children');
+
+        // Validasi input
+        if (empty($checkinDate) || empty($checkoutDate) || empty($numberOfAdults)) {
+            return redirect()->back()->with('error', 'Harap lengkapi semua field');
+        }
+
+        // Kirim permintaan ke server atau lakukan tindakan lain sesuai kebutuhan
+        // Misalnya, menggunakan logika bisnis untuk memeriksa ketersediaan kamar
+        // ...
+
+        // Contoh respon sukses
+        return redirect()->back()->with('success', 'Kamar tersedia');
+
+        // Contoh respon gagal
+        return redirect()->back()->with('error', 'Kamar tidak tersedia');
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
     }
 }

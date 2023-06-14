@@ -143,8 +143,12 @@
                             <!--end col-->
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0">
+<<<<<<< HEAD
                                     <h5 class="mb-1"><span class="counter-value"
                                             data-target="1026">{{ $total_reservations }}</span></h5>
+=======
+                                    <h5 class="mb-1"><span class="counter-value" data-target="1026">0</span></h5>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
                                     <p class="text-muted mb-0">Hotel</p>
                                 </div>
                             </div>
@@ -152,7 +156,11 @@
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0">
                                     <h5 class="mb-1">Rp.<span class="counter-value"
+<<<<<<< HEAD
                                             data-target="228.89">{{ $yeartotal + $yearreservation }}</span></h5>
+=======
+                                            data-target="228.89">{{ $yeartotal }}</span></h5>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
                                     <p class="text-muted mb-0">Revenue</p>
                                 </div>
                             </div>
@@ -255,19 +263,31 @@
                 },
                 series: [{
                     name: 'Order',
+<<<<<<< HEAD
                     data: [{{ $januarySum }}, {{ $februarySum }}, {{ $marchSum }}, {{ $aprSum }},
                         {{ $maySum }}, {{ $juneSum }}, {{ $julySum }},
                         {{ $augustSum }}, {{ $sepSum }},
                         {{ $octSum }}, {{ $novSum }}, {{ $decSum }}
+=======
+                    data: [{{ $januarySum }}, {{ $februarySum }}, {{ $marchSum }}, {{ $aprilSum }},
+                        {{ $maySum }}, {{ $juneSum }}, {{ $julySum }},
+                        {{ $augustSum }}, {{ $septemberSum }},
+                        {{ $octoberSum }}, {{ $novemberSum }}, {{ $decemberSum }}
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
                     ]
 
                 }, {
                     name: 'Hotel',
+<<<<<<< HEAD
                     data: [{{ $januariSum }}, {{ $februariSum }}, {{ $maretSum }},
                         {{ $aprilSum }},
                         {{ $meiSum }}, {{ $juniSum }}, {{ $juliSum }},
                         {{ $agustusSum }}, {{ $septemberSum }},
                         {{ $oktoberSum }}, {{ $novemberSum }}, {{ $desemberSum }}
+=======
+                    data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5,
+                        106.6, 92.3
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
                     ]
                 }]
             });
