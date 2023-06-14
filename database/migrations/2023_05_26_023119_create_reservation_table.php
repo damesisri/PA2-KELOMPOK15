@@ -17,16 +17,16 @@ class CreateReservationTable extends Migration
             $table->id();
             $table->unsignedBigInteger('hotel_id');
             $table->unsignedBigInteger('user_id');
-            $table->date('checkin');
-            $table->date('checkout');
-            $table->string('status')->default('Pending');
+            $table->date('checkin_date');
+            $table->date('checkout_date');
+            $table->enum('status', ['pending', 'accepted', 'rejected', 'completed'])->default('Pending');
             $table->integer('adults');
             $table->integer('children');
-            $table->decimal('total_price', 8, 2)->nullable(false);
+            $table->double('total_price', 8, 2)->nullable(false);
             $table->string('payment_proof')->nullable();
             // $table->string('status')->nullable(false)->default('pending')->comment('pending, booked, canceled');
             // $table->string('snap_token', 36)->nullable();
-            $table->enum('payment_status', ['1', '2', '3', '4'])->comment('1: pending, 2: success, 3: failed, 4: expired')->default('1');
+            // $table->enum('payment_status', ['1', '2', '3', '4'])->comment('1: pending, 2: success, 3: failed, 4: expired')->default('1');
             $table->timestamps();
 
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');

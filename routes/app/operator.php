@@ -8,6 +8,7 @@ use App\Http\Controllers\Operator\DashboardController;
 use App\Http\Controllers\Operator\BookingController;
 use App\Http\Controllers\Operator\NotificationController;
 
+
 Route::prefix('operator/')->name('operator.')->group(function () {
     Route::prefix('auth')->name('auth.')->group(function () {
         Route::post('login', [AuthController::class, 'do_login'])->name('login');
@@ -18,15 +19,17 @@ Route::prefix('operator/')->name('operator.')->group(function () {
         Route::get('logout', [AuthController::class, 'do_logout'])->name('logout');
 
         Route::resource('booking', BookingController::class)->only(['create']);
-        // Route::resource('hotel', HotelController::class);
+        Route::resource('hotel', HotelController::class)->only(['create']);
         Route::resource('order', OrderController::class)->only(['create']);
 
 
         Route::get('hotel', [HotelController::class, 'index'])->name('hotel.index');
+        Route::post('hotel/makeReservation', [OrderController::class, 'makeOrder'])->name('hotel.makeReservation');
         Route::get('hotel/pdf', [HotelController::class, 'pdf'])->name('hotel.pdf');
         Route::get('hotel/{hotel}', [HotelController::class, 'show'])->name('hotel.show');
         Route::patch('hotel/accept/{hotel}', [HotelController::class, 'accept'])->name('hotel.accept');
         Route::patch('hotel/reject/{hotel}', [HotelController::class, 'reject'])->name('hotel.reject');
+        Route::put('hotel/finish/{hotel}', [HotelController::class, 'finish'])->name('hotel.finish');
 
         Route::get('order', [OrderController::class, 'index'])->name('order.index');
         Route::post('order/makeOrder', [OrderController::class, 'makeOrder'])->name('order.makeOrder');

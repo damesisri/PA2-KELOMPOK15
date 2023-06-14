@@ -187,9 +187,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <button class="next-step">Complete order</button>
+                                                    <button class="next-step">Complete order</button>
 
                                             </form>
 

@@ -136,14 +136,7 @@
                                 style=" line-height: initial; color: #fff; border:solid 2px #fff; text-transform: uppercase; font-weight: 500; letter-spacing: 0px; padding: 16px 36px; display: inline-block; font-size: 18px;"></a>
                         </div>
                     </div>
-
-
                 </li>
-
-
-
-
-
             </ul>
             <div class="tp-bannertimer"></div>
         </div>
@@ -156,7 +149,6 @@
 
     <!--Start Content-->
     <div class="content">
-
 
         <!--Start Services-->
         <div class="services">
@@ -476,7 +468,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
 
                     <div class="serv-main-sec">
@@ -493,7 +484,6 @@
                                         mandi dalam</p> --}}
                                             {{-- <a href="room-detail.html">view detail</a> --}}
                                         </div>
-
                                 </div>
                             </div>
                         @endforeach
@@ -505,105 +495,6 @@
             </div>
         </div>
         <!--End Services-->
-
-
-
-
-
-
-        {{-- <!--Start Customer Words-->
-        <div class="customer-words">
-
-            <div class="parallax parallax-customer-words">
-                <div class="detail">
-
-                    <div class="main-title-white">
-                        <span>Some Words</span>
-                        <h1>FROM CUSTOMERS</h1>
-                    </div>
-
-                    <div id="testimonials">
-                        <div class="container">
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="span12">
-
-                                        <div id="owl-demo2" class="owl-carousel">
-
-                                            <div class="testi-sec">
-                                                <img src="{{ asset('assets-user/images/testimonial-img1.jpg') }}"
-                                                    alt="">
-                                                <div class="height35"></div>
-                                                <span class="name">Christian Stewart</span>
-                                                <span class="work">Fashion Designer</span>
-                                                <div class="height20"></div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
-                                                    tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae
-                                                    accumsan. interdum hendrerit lacinia.</p>
-                                                <div class="height20"></div>
-                                                <div class="rating">
-                                                    <i class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i>
-                                                </div>
-                                            </div>
-
-                                            <div class="testi-sec">
-                                                <img src="{{ asset('assets-user/images/testimonial-img2.jpg') }}"
-                                                    alt="">
-                                                <div class="height35"></div>
-                                                <span class="name">johny Bravo</span>
-                                                <span class="work">TV Actor</span>
-                                                <div class="height20"></div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
-                                                    tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae
-                                                    accumsan. interdum hendrerit lacinia Aenean ac tortor at tellus
-                                                    feugiat congue quis ut nunc. Semper ac dolor vitae accumsan. </p>
-                                                <div class="height20"></div>
-                                                <div class="rating">
-                                                    <i class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i>
-                                                </div>
-                                            </div>
-
-                                            <div class="testi-sec">
-                                                <img src="{{ asset('assets-user/images/testimonial-img3.jpg') }}"
-                                                    alt="">
-                                                <div class="height35"></div>
-                                                <span class="name">Rubica noi</span>
-                                                <span class="work">Founder Photography</span>
-                                                <div class="height20"></div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
-                                                    tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae
-                                                    accumsan.</p>
-                                                <div class="height20"></div>
-                                                <div class="rating">
-                                                    <i class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-        <!--End Customer Words--> --}}
-
-
-
     </div>
     <!--End Content-->
 

@@ -2,88 +2,32 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
+use App\Models\Hotel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Reservat extends Model
+class Reservation extends Model
 {
-    const STATUS_PENDING = 'pending';
-    const STATUS_CONFIRMED = 'confirmed';
-    const STATUS_APPROVED = 'approved';
-    const STATUS_REJECTED = 'rejected';
-    const STATUS_COMPLETED = 'completed';
-    const STATUS_CANCELED = 'canceled';
-
-    use HasFactory, SoftDeletes;
-
-    protected $guarded = [];
-
-    protected $casts = [
-        'check_in' => 'date',
-        'check_out' => 'date',
-    ];
-
-    public function homestay()
-    {
-        return $this->belongsTo(Homestay::class);
-    }
+    protected $table = 'reservations';
+    protected $guarded = [''];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function review()
+    public function hotel()
     {
-        return $this->hasOne(Review::class);
+        return $this->belongsTo(Hotel::class);
     }
 
-    public function status()
+    public function getDays($checkin, $checkout)
     {
-        switch ($this->status) {
-            case 'pending':
-                return '<span class="badge badge-secondary">Menunggu</span>';
-                break;
-            case 'confirmed':
-                return '<span class="badge badge-primary">Dikonfirmasi</span>';
-                break;
-            case 'approved':
-                return '<span class="badge badge-success">Disetujui</span>';
-                break;
-            case 'rejected':
-                return '<span class="badge badge-danger">Ditolak</span>';
-                break;
-            case 'completed':
-                return '<span class="badge badge-success">Selesai</span>';
-                break;
-            case 'canceled':
-                return '<span class="badge badge-danger">Dibatalkan</span>';
-                break;
-            default:
-                return '<span class="badge badge-secondary">Pending</span>';
-                break;
-        }
-    }
-
-    public function payment_status()
-    {
-        switch ($this->payment_status) {
-            case 1:
-                return '<span class="badge badge-secondary">Pending</span>';
-                break;
-            case 2:
-                return '<span class="badge badge-success">Success</span>';
-                break;
-            case 3:
-                return '<span class="badge badge-danger">Failed</span>';
-                break;
-            case 4:
-                return '<span class="badge badge-danger">Expired</span>';
-                break;
-            default:
-                return '<span class="badge badge-secondary">Pending</span>';
-                break;
-        }
+        $checkin = strtotime($checkin);
+        $checkout = strtotime($checkout);
+        $datediff = $checkout - $checkin;
+        return round($datediff / (60 * 60 * 24));
     }
 }

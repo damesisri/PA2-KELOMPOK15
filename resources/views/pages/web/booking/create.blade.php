@@ -50,41 +50,42 @@
             /* Warna latar belakang saat dihover */
         }
     </style>
-    <!--Start Sub Banner-->
-    <div class="sub-banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="detail">
-                        <h1>Booking now</h1>
-                        <ul>
-                            <li><a href="index-2.html">Home</a></li>
-                            <li><a class="select">Booking Now</a></li>
-                        </ul>
+    < !--Start Sub Banner-->
+        <div class="sub-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="detail">
+                            <h1>Booking now</h1>
+                            <ul>
+                                <li><a href="index-2.html">Home</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="banner-img"></div>
         </div>
-        <div class="banner-img"></div>
-    </div>
-    <div class="wave"></div>
-
-    <div class="reserved mar-b">
-        <div class="container">
-            <div class="row ">
-                <div class="col-sm-12 commontop text-center">
-                    <h4>Room Reservation</h4>
-                    <hr>
-                    <p>Anda dapat memesan pemandian dengan mudah melalui booking online atau melalui tim pelayanan
-                        kami yang ramah.</p>
-                </div>
-
-                <div class="blog-area full-blog blog-standard full-blog grid-colum default-padding col-md-12">
-                    <div class="justify-content-end">
-                        <button type="button" class="cool-button"
-                            onclick="location.href='{{ route('web.pemandian') }}';">Reservation</button>
+        <div class="wave"></div>
+        <div class="reserved mar-b">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-sm-12 commontop text-center">
+                        <h4>Room Reservation</h4>
+                        <hr>
+                        <p>Anda dapat memesan pemandian dengan mudah melalui booking online atau melalui tim pelayanan
+                            kami yang ramah.</p>
+                    </div><br>
+                    <div class="blog-area full-blog blog-standard full-blog grid-colum default-padding col-md-12">
+                        <div class="justify-content-end">
+                            <button type="button" class="cool-button"
+                                onclick="location.href='{{ route('web.pemandian') }}';">Reservation</button>
+                                
+                            <button type="button" class="cool-button"
+                                onclick="location.href='{{ route('web.pemandian.pdf') }}';">Ekspor PDF</button>
+                        </div>
+                        <br>
                     </div>
-                    <br><br>
                     <table>
                         <tr>
                             <th>No</th>
@@ -109,11 +110,9 @@
                             @endif
                         @endforeach
                     </table>
-                </div>
-                {{-- <div class="text-center">
+                </div>{{-- <div class="text-center">
                     {{ $toilet->links('theme.web.custom') }}
                 </div> --}}
             </div>
         </div>
-
 </x-web-layout>

@@ -42,10 +42,6 @@
                         <div id="hotel-view" class="owl-carousel owl-theme">
                             <div class="item"><img src="{{ asset('images/hotel/' . $hotel->cover) }}" alt="">
                             </div>
-                            <div class="item"><img src="{{ asset('assets-user/imgs/room-detail-img2.jpg') }}"
-                                    alt=""></div>
-                            <div class="item"><img src="{{ asset('assets-user/imgs/room-detail-img3.jpg') }}"
-                                    alt=""></div>
                         </div>
 
 
@@ -90,28 +86,6 @@
                                 cursus congue. Phasellus sodales condimentum rutrum.
                             </p>
                         </div>
-
-                        <div class="room-descrip">
-                            <h5>Room Overview</h5>
-                            <p>Semper ac dolor vitae accumsan. interdum hendrerit lacinia. Etiam eget urna augue.
-                                Aenean
-                                posuere pharetra tortor eu sodales. Aenean vitae facilisis ligula.</p>
-                        </div>
-
-
-                        <div class="room-overview">
-                            <div class="detail"><span><strong>Bed:</strong> Queen</span></div>
-                            <div class="detail light-gray"><span><strong>Occupancy:</strong> 2 Persons</span></div>
-                            <div class="detail"><span><strong>Ensuite Bathroom:</strong> Yes</span></div>
-                            <div class="detail light-gray"><span><strong>Free Airport Pickup:</strong> Yes</span>
-                            </div>
-                            <div class="detail"><span><strong>Breakfast Included:</strong> Yes (Continental)</span>
-                            </div>
-                            <div class="detail light-gray"><span><strong>Free Internet:</strong> Yes</span></div>
-                            <div class="detail"><span><strong>Gym Access:</strong> 24/7</span></div>
-                        </div>
-
-
                     </div>
 
 
@@ -134,48 +108,50 @@
                             </div>
 
 
-                            <form class="form" method="POST"
-                                action="{{ route('web.penginapan.store', $hotel->id) }}">
+                            <form class="form" method="POST" id="form_penginapan"
+                                action="{{ route('web.penginapan.book') }}" novalidate="novalidate">
                                 @csrf
+                                <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
+                                <input type="hidden" name="price" value="{{ $hotel->price }}">
                                 <div class="field">
-                                    <input type="text" id="datepicker" placeholder="Appointment Date" onClick=""
-                                        name="checkin" value="Check In"
-                                        onblur="If(this.value == '') { this.value='Check In'}"
-                                        onfocus="if (this.value == 'Check In') {this.value=''}" />
+                                    <input type="text" class="date-pick form-control" id="datepicker"
+                                        placeholder="Appointment Date" onClick="" name="checkin" value="Check In"
+                                        onblur="if(this.value == '') { this.value='Check In'}"
+                                        onfocus="if (this.value == 'Check In') {this.value=''}" autocomplete="off" />
                                 </div>
 
                                 <div class="field">
-                                    <input type="text" id="datepicker2" placeholder="Appointment Date" onClick=""
-                                        name="checkout" value="Check Out"
+                                    <input type="text" class="date-pick form-control" id="datepicker2"
+                                        placeholder="Appointment Date" onClick="" name="checkout" value="Check Out"
                                         onblur="if(this.value == '') { this.value='Check Out'}"
-                                        onfocus="if (this.value == 'Check Out') {this.value=''}" />
+                                        onfocus="if (this.value == 'Check Out') {this.value=''}" autocomplete="off" />
                                 </div>
 
                                 <div class="field field2">
-                                    <select class="basic-example" id="reserv_time" name="adults">
+                                    <select class="basic-example" id="totalAdult" name="adults">
                                         <option value="">Adults</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5+</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5+</option>
                                     </select>
                                 </div>
 
                                 <div class="field field2 last">
-                                    <select class="basic-example" id="reserv_time" name="childern">
+                                    <select class="basic-example" id="totalChildren" name="children">
                                         <option value="">Children</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5+</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5+</option>
                                     </select>
                                 </div>
 
 
 
-                                <button type="submit" class="availability">Pesan Kamar</button>
+                                <button type="button" class="availability" id="btn_check">Pesan Kamar</button>
 
 
                             </form>
@@ -197,85 +173,63 @@
         <script>
             function checkAvailability() {
                 // Ambil nilai input dari elemen HTML
-                var checkinDate = document.getElementById("datepicker").value;
-                var checkoutDate = document.getElementById("datepicker2").value;
-                var numberOfAdults = document.getElementById("reserv_time").value;
-                var numberOfChildren = document.getElementById("people_total").value;
+                var checkinDate = $('#datepicker').val();
+                var checkoutDate = $('#datepicker2').val();
+                var numberOfAdults = $('#totalAdult').val();
+                var numberOfChildren = $('#totalChildren').val();
 
-                // Validasi input
-                if (checkinDate === "" || checkoutDate === "" || numberOfAdults === "") {
-                    alert("Harap lengkapi semua field");
+                var hotel_id = "{{ $hotel->id }}";
+
+                // Ubah tanggal menjadi objek Date untuk membandingkannya
+                var checkin = new Date(checkinDate);
+                var checkout = new Date(checkoutDate);
+
+                // Validasi tanggal
+                if (checkin.getTime() === checkout.getTime()) {
+                    toastr.error('Tanggal check-in dan check-out tidak boleh sama.');
                     return;
                 }
 
-                // Kirim permintaan ke server atau lakukan tindakan lain sesuai kebutuhan
-                // Misalnya, menggunakan AJAX untuk mengirim data pemesanan ke server dan memeriksa ketersediaan kamar
-
-                // Contoh tindakan: menampilkan pesan kamar tersedia atau tidak tersedia
-                var isRoomAvailable = /* logika pengecekan ketersediaan kamar */ true;
-
-                if (isRoomAvailable) {
-                    alert("Kamar tersedia! Anda dapat melanjutkan pemesanan.");
-                } else {
-                    alert("Maaf, kamar tidak tersedia untuk tanggal yang dipilih.");
+                if (checkin.getTime() > checkout.getTime()) {
+                    toastr.error('Tanggal check-out harus lebih besar dari tanggal check-in.');
+                    return;
                 }
-            }
-            $(function() {
-                'use strict';
-                // disable button
-                $('#btn_check').prop('disabled', true);
-                $('input.date-pick').daterangepicker({
-                    autoUpdateInput: false,
-                    opens: 'left',
-                    minDate: new Date(),
-                    locale: {
-                        cancelLabel: 'Clear'
-                    }
-                });
-                $('input.date-pick').on('apply.daterangepicker', function(ev, picker) {
-                    $(this).val(picker.startDate.format('MM-DD-YY') + ' > ' + picker.endDate
-                        .format('MM-DD-YY'));
-                    // check homestay status is available or not
-                    if (available == 0) {
-                        return;
-                    }
-                    if (picker.startDate.format('MM-DD-YY') == picker.endDate.format(
-                            'MM-DD-YY')) {
-                        toastr.error('Check in and check out date cannot be the same');
-                        return;
-                    }
-                    checkAvailability();
-                });
-                $('input.date-pick').on('cancel.daterangepicker', function(ev, picker) {
-                    $(this).val('');
-                });
-            });
 
-            function checkAvailability() {
-                var dates = $('input.date-pick').val().split(' > ');
-                var check_in = dates[0];
-                var check_out = dates[1];
-                var homestay_id = "{{ $hotel->id }}";
                 $.ajax({
-                    url: "{{ route('penginapan.create') }}",
+                    url: "/penginapan/check",
                     type: "POST",
                     data: {
                         _token: "{{ csrf_token() }}",
-                        check_in: check_in,
-                        check_out: check_out,
-                        homestay_id: homestay_id
+                        check_in: checkinDate,
+                        check_out: checkoutDate,
+                        adult: numberOfAdults,
+                        children: numberOfChildren,
+                        hotel_id: hotel_id
                     },
                     success: function(response) {
-                        if (response.status == 'success') {
-                            toastr.success(response.message);
-                            $("#btn_check").prop('disabled', false);
+                        if (response.status == 'success' && response.isAvailable == 1) {
+                            toastr.success('Kamar tersedia!');
+                            $('#form_penginapan').submit();
                         } else {
-                            $("#btn_check").prop('disabled', true);
                             toastr.error(response.message);
+                            return;
                         }
                     }
                 });
+
             }
+
+            $(function() {
+                'use strict';
+                // disable button
+                $('#btn_check').click(function() {
+                    checkAvailability();
+                });
+            });
+
+
+
+
 
             function load_data(page) {
                 $.get("?page=" + page, {

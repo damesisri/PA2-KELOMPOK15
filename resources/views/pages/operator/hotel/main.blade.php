@@ -13,9 +13,8 @@
                     <div class="row g-4">
                         <div class="col-sm justify-content-sm-start">
                             <a href="{{ route('operator.hotel.pdf') }}" class="btn btn-md btn-info me-2 col-md-2"
-                                target="_blank" class="menu-link px-3">Cetak</a>
-                            <a class="btn btn-info add-btn" href="javascript:;"
-                                onclick="load_input('{{ route('operator.hotel.create') }}');"><i
+                                target="_blank" class="menu-link px-3">Ekspor PDF</a>
+                            <a class="btn btn-info add-btn" href="{{ route('operator.hotel.create') }}"><i
                                     class="ri-add-line align-bottom me-1"></i>Pesan</a>
                         </div>
                         <div class="col-sm">

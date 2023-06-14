@@ -1,16 +1,51 @@
 <x-web-layout title="data">
+    <style>
+        /* Gaya untuk tampilan Room Overview */
+
+        .room-overview {
+            margin: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ebebeb;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .detail {
+            margin-bottom: 10px;
+        }
+
+        .detail span {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .detail.light-gray span {
+            color: #777;
+        }
+
+        .detail strong {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .detail:last-child {
+            margin-bottom: 0;
+        }
+
+        br {
+            line-height: 20px;
+        }
+    </style>
     <!--Start Sub Banner-->
     <div class="sub-banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="detail">
-                        <h1>Room Detail</h1>
-                        <span>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</span>
+                        <h1>Pembayaran</h1>
+                        {{-- <span>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</span> --}}
                         <ul>
-                            <li><a href="index-hotel.html">Home</a></li>
-                            <li><a href="accommodation.html">Rooms</a></li>
-                            <li><a class="select">Room Detail</a></li>
+                            <li><a href="#">Home</a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,136 +63,157 @@
     <div class="content">
 
         <!--Start Rooms-->
-        <div class="booking-steps">
+        <div class="room-detail">
             <div class="container">
+                <div class="row">
 
-
-                <!--Start Bread Crumb-->
-
-                <div class="bread-crumb">
-                    <div class="row">
-                        <div class="col-md-12">
-
-
-
-                            <div class="bread-crumb-sec">
-                                <a class="selected">
-                                    <span class="number">1</span>
-                                    <div class="clear"></div>
-                                    <span class="text">Your Room</span>
-                                </a>
+                    <div class="col-md-8 mx-auto">
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Success!</strong> {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
                             </div>
+                        @endif
 
-                            <div class="bread-crumb-sec">
-                                <a>
-                                    <span class="number">2</span>
-                                    <div class="clear"></div>
-                                    <span class="text">Place Your Reservation</span>
-                                </a>
+                        <h1>Pembayaran </h1>
+
+                        <div class="room-overview">
+                            <div class="detail"><span><strong>Nama :</strong> Queen</span></div>
+                            <div class="detail light-gray"><span><strong>Check
+                                        In:</strong>{{ $reservation->checkin_date }} </span></div>
+                            <div class="detail"><span><strong>Check Out</strong>{{ $reservation->checkout_date }}</span>
                             </div>
-
-                            <div class="bread-crumb-sec">
-                                <a>
-                                    <span class="number">3</span>
-                                    <div class="clear"></div>
-                                    <span class="text">Confirmation</span>
-                                </a>
+                            <div class="detail light-gray"><span><strong>Adults</strong>
+                                    {{ $reservation->adults }}</span></div>
+                            <div class="detail"><span><strong>Children</strong> {{ $reservation->children }}</span>
                             </div>
-
+                            <div class="detail light-gray"><span><strong>Nights:</strong>
+                                    {{ $reservation->getDays($reservation->checkin_date, $reservation->checkout_date) }}</span>
+                            </div>
+                            <div class="detail"><span><strong>Total :</strong> Rp.
+                                    {{ number_format($reservation->total_price, 0, ',', '.') }}</span></div>
+                            <div class="detail light-gray"><span><strong>Status :</strong>
+                                    {{ $reservation->status }}</span></div><br><br>
                         </div>
-                    </div>
-                </div>
+                        <div class="cash-payment">
+                            <div class="cash-delivery">
+                                <div class="cash-delivery-detail">
+                                    <h5>Payment method</h5>
+                                    <p>All transactions are secure and encrypted. Credit card
+                                        information is never
+                                        stored.</p>
 
-                <!--End Bread Crumb-->
-
-
-
-                <!--Start Select Room-->
-
-                <div class="detail-sections">
-                    <div class="row">
-
-                        <div class="col-md-4">
-
-                            <div class="reservation">
-                                <span class="title">Your Reservation</span>
-                                <p>Semper dolor vitae accumsan. interdum hendrerit lacinia.</p>
-
-                                <ul>
-                                    <li><span><strong>Check In:</strong> 29/08/2016</span></li>
-                                    <li><span><strong>Check Out:</strong> 28/09/2016</span></li>
-                                    <li><span><strong>Guests:</strong>2 Adult, 1 Child</span></li>
-                                    <li><span><strong>Rooms:</strong>1 Room</span></li>
-                                </ul>
-
-                                <a href="room-detail.html">Edit reservation</a>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-8">
-
-                            <div class="your-room">
-                                <h4>The Room that you Selected:</h4>
-
-                                <div class="detail">
-                                    <img src="{{ asset('assets-user/imgs/room-detail-img1.jpg') }}" alt="">
-
-                                    <div class="text">
-                                        <h6>Room with one bedroom</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris. Duis aute irure dolor in
-                                            reprehenderit in voluptate incididunt.</p>
-                                        <a href="room-step2.html">select room</a>
-                                    </div>
-
-                                    <div class="price-detail">
-
-                                        <div class="stars">
-                                            <i class="icon-star3"></i>
-                                            <i class="icon-star3"></i>
-                                            <i class="icon-star3"></i>
-                                            <i class="icon-star3"></i>
-                                            <i class="icon-star3"></i>
+                                    <div class="shipping-address payment-method">
+                                        <div class="shipping-method">
+                                            <div class="shipping-across">
+                                                <div data-bs-toggle="collapse" data-bs-target="#paymentmethodCollapse"
+                                                    aria-expanded="true" aria-controls="paymentmethodCollapse">
+                                                    <div class="form-check card-radio">
+                                                        <input id="shippingMethod02" name="payment" type="radio"
+                                                            value="Bank Transfer" class="form-check-input" checked>
+                                                        <label class="form-check-label" for="shippingMethod02">
+                                                            <span
+                                                                class="fs-20 float-end mt-2 text-wrap d-block fw-semibold">Bank</span>
+                                                            <span
+                                                                class="fs-14 mb-1 text-wrap d-block jus">Mandiri</span>
+                                                            <span class="text-muted fw-normal text-nowrap d-block">Rek.
+                                                                1560009861578</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div class="room-price">
-                                            <span class="current">$189</span>
-
-                                            <span class="per-night">*Pax/Per night</span>
+                                        <div class="shipping-method">
+                                            <div class="shipping-across">
+                                                <div data-bs-toggle="collapse"
+                                                    data-bs-target="#paymentmethodCollapse.show" aria-expanded="false"
+                                                    aria-controls="paymentmethodCollapse">
+                                                    <div class="form-check card-radio">
+                                                        <input id="shippingMethod01" name="payment" type="radio"
+                                                            value="Cash" class="form-check-input">
+                                                        <label class="form-check-label" for="shippingMethod01">
+                                                            <span
+                                                                class="fs-20 float-end mt-2 text-wrap d-block fw-semibold">Cash/Tunai</span>
+                                                            <span class="fs-14 mb-1 text-wrap d-block">Cash</span>
+                                                            <span class="text-muted fw-normal text-wrap d-block">Bayar
+                                                                ke Kasir</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
+                                        <div class="shipping-method">
+                                            <div class="shipping-across">
+                                                <div data-bs-toggle="collapse"
+                                                    data-bs-target="#paymentmethodCollapse.show" aria-expanded="false"
+                                                    aria-controls="paymentmethodCollapse">
+                                                    <div class="form-check card-radio">
+                                                        <input id="shippingMethod03" name="payment" type="radio"
+                                                            value="E-money" class="form-check-input">
+                                                        <label class="form-check-label" for="shippingMethod03">
+                                                            <span
+                                                                class="fs-20 float-end mt-2 text-wrap d-block fw-semibold">E-Money</span>
+                                                            <span class="fs-14 mb-1 text-wrap d-block">Dana</span>
+                                                            <span
+                                                                class="text-muted fw-normal text-wrap d-block">089688875900</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <form action="{{ route('web.penginapan.payment') }}" enctype="multipart/form-data" method="POST">
+                                            @csrf
+                                            <div class="shipping-method" id="paymentmethodCollapse">
+                                                <div class="shipping-across">
+                                                    <div>
+                                                        <h6 class="mb-1">Bukti Pembayaran</h6>
+                                                        <p class="text-muted mb-4">Please select and enter
+                                                            your
+                                                            billing
+                                                            information</p>
+                                                    </div>
+
+                                                    <div class="card p-4 border shadow-none mb-0 mt-4">
+                                                        <div class="row gy-3">
+                                                            <div class="col-md-12">
+                                                                <label for="image" class="form-label">Bukti
+                                                                    Pembayaran</label>
+                                                                <input type="file" class="form-control"
+                                                                    id="image" name="payment_proof">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <button class="next-step">Complete order</button>
+
+                                        </form>
 
                                     </div>
 
                                 </div>
-
                             </div>
-
                         </div>
-
-
+                        <!--Start Shipping Address-->
+                        <!--End Shipping Address-->
                     </div>
+                    <!--End Cash Billing-->
+
                 </div>
-
-
-                <!--End Select Room-->
-
-
-
-
-
-
-
-
             </div>
         </div>
-        <!--End Rooms-->
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    <!--End Rooms-->
 
     </div>
     <!--End Content-->
-
 </x-web-layout>

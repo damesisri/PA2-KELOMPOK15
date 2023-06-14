@@ -64,13 +64,6 @@
                                     <span class="text">Payment Method</span>
                                 </a>
                             </div>
-                            {{-- <div class="bread-crumb-sec">
-                                <a>
-                                    <span class="number">4</span>
-                                    <div class="clear"></div>
-                                    <span class="text">Payment Info</span>
-                                </a>
-                            </div> --}}
                         </div>
                     </div>
                 </div>

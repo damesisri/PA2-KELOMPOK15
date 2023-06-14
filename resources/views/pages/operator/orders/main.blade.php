@@ -13,7 +13,7 @@
                     <div class="row g-4">
                         <div class="col-sm justify-content-sm-start">
                             <a href="{{ route('operator.order.pdf') }}" class="btn btn-info add-btn" target="_blank"
-                                class="menu-link px-3">Cetak</a>
+                                class="menu-link px-3">Ekspor PDF</a>
                             <a class="btn btn-info add-btn" href="{{ route('operator.order.create') }}"><i
                                     class="ri-add-line align-bottom me-1"></i>Pesan</a>
                         </div>
