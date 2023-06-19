@@ -45,32 +45,25 @@ class PemandianController extends Controller
 
     public function check(Request $request)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'book_date' => 'required|date|after_or_equal:today',
+            'book_date' => 'required|date|after_or_equal:today|unique:transaksipemandians,book_date,NULL,id,toilet_id,' . $request->toilet_id,
             'book_time' => 'required',
             'person' => 'required',
+        ], [
+            'book_date.required' => 'Tanggal booking harus diisi.',
+            'book_date.after_or_equal' => 'Tanggal booking harus setelah atau sama dengan hari ini.',
+            'book_date.unique' => 'Toilet sudah dibooking pada tanggal tersebut.',
+            'book_time.required' => 'Waktu booking harus diisi.',
+            'person.required' => 'Jumlah orang harus diisi.',
         ]);
+
         if ($validator->fails()) {
             return response()->json([
                 'status' => 'error',
                 'message' => $validator->errors()->first()
             ]);
         }
-
-
-        $pemandian = Pemandian::whereDate('book_date', $request->book_date)
-            // ->whereTime('book_time', $request->book_time)
-            ->where('status', 'approved')
-            ->count();
-
-        if ($pemandian >= 1) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Booking tidak tersedia pada tanggal dan waktu tersebut'
-            ]);
-        }
-
-        
 
         return response()->json([
             'status' => 'success',

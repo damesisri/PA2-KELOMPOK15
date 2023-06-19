@@ -220,7 +220,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="field"><input class="form-control" name="person" id="phone"
+                                    <div class="field"><input class="form-control" name="person" id="person"
                                             type="text" value="Person"
                                             onblur="if(this.value == '') { this.value='Person'}"
                                             onfocus="if (this.value == 'Person') {this.value=''}"></div>
@@ -312,12 +312,6 @@
                 }
                 var book_date = new Date(book_date);
 
-                var today = new Date();
-                if (book_date.getTime() < today.getTime()) {
-                    toastr.error('Tanggal tidak boleh yang sudah lewat.');
-                    return;
-                }
-
                 // validasi jika jumlah orang kosong
                 if (person == "") {
                     toastr.error('Jumlah orang tidak boleh kosong.');
@@ -330,11 +324,7 @@
                     return;
                 }
 
-                // Validasi btn check jika belum login maka akan muncul alert 
-                @if (Auth::guest())
-                    toastr.error('Silahkan login terlebih dahulu.');
-                    return;
-                @endif
+
 
                 var selectedDate = new Date($('#datepicker').val());
                 var bookedDates = []; // Daftar tanggal yang sudah dibooking sebelumnya
@@ -351,6 +341,11 @@
                     }
                 }
 
+                // Validasi btn check jika belum login maka akan muncul alert 
+                @if (Auth::guest())
+                    toastr.error('Silahkan login terlebih dahulu.');
+                    return;
+                @endif
                 // set to asia/jakarta time
                 book_date.setHours(book_date.getHours() + 7);
 
@@ -359,7 +354,7 @@
                     url: '{{ route('web.pemandian.check') }}',
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        book_date: book_date.toISOString().slice(0, 19).replace('T', ' '),
+                        book_date: book_date.toISOString().split('T')[0],
                         book_time: book_time,
                         person: person,
                         toilet_id: toilet_id
