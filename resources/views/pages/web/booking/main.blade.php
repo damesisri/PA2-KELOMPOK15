@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="banner-img"></div>
+        <div class="banner-img2"></div>
     </div>
     <div class="wave"></div>
 
@@ -49,7 +49,8 @@
                         <div class="cbp-item starters">
 
                             <a href="{{ route('web.booking.detail', $item->id) }}">
-                                <img src="{{ asset('images/toilet/' . $item->cover) }}" alt="">
+                                <img src="{{ asset('images/toilet/' . $item->cover) }}" alt=""
+                                    style="max-width: 100%; height: 20em;">
                                 <div class="detail">
                                     <h6>{{ $item->title }}</h6>
                                     {{-- <span>Fresh<span class="dot">.</span> light<span class="dot">.</span>
@@ -57,7 +58,7 @@
 
                                     <div class="price-cart">
                                         <a href="#."><span
-                                                class="price">${{ number_format($item->price) }}</span></a>
+                                                class="price    ">Rp.{{ number_format($item->price) }}</span></a>
                                         <a href="{{ route('web.booking.detail', $item->id) }}"><span
                                                 class="cart">Detail</span></a>
                                     </div>

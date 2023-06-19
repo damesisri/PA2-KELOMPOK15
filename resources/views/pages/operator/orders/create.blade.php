@@ -16,7 +16,7 @@
                             <option value="{{ $item->id }}">{{ $item->title }} -
                                 Rp.{{ number_format($item->price), 0, ',', '.' }}
                             </option>
-                        @endforeach
+                        @endforeach 
                     </select>
                     <br>
                     {{-- <div class="mb-3">

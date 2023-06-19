@@ -6,8 +6,8 @@
                     <tr>
                         <th>No</th>
                         <th>Nama Pemesan</th>
-                        <th class="col-md-2">Alamat</th>
-                        <th>Kota</th>
+                        {{-- <th class="col-md-2">Alamat</th> --}}
+                        {{-- <th>Pesanan</th> --}}
                         <th>No Hp</th>
                         <th>Total Harga</th>
                         <th>Bukti Pembayaran</th>
@@ -16,14 +16,17 @@
                     </tr>
                 </thead>
                 <tbody class="list form-check-all">
-                    @foreach ($orders as $item)
+                    @foreach ($pemesanan as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->user->fullname }}</td>
-                            <td class="text-capitalize">
+
+                            {{-- <td class="text-capitalize">
                                 {{ $item->user->address . ', ' . $item->user->city }}
                             </td>
-                            <td>{{ $item->user->postal_code }}</td>
+                            <td>{{ $item->user->postal_code }}</td> --}}
+
+                            {{-- <td>{{ $item->product->title }}</td> --}}
                             <td>{{ $item->user->phone }}</td>
                             <td>{{ $item->total }}</td>
                             <td>
@@ -49,21 +52,21 @@
                                 <div class="btn-group d-flex justify-content-center" role="group"
                                     aria-label="Basic example">
                                     <a href="javascript:;"
-                                        onclick="load_detail('{{ route('operator.order.show', $item->id) }}')"
+                                        onclick="load_detail('{{ route('operator.pemesanan.show', $item->id) }}')"
                                         class="btn btn-sm btn-primary">Detail</a>
                                     @if ($item->status == 'accepted')
                                         <a href="javascript:;"
-                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PUT','{{ route('operator.order.finish', $item->id) }}');"
+                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PUT','{{ route('operator.pemesanan.finish', $item->id) }}');"
                                             class="btn btn-sm btn-danger"></i>Finish</a>
                                     @endif
                                     @if ($item->status == 'pending')
                                         <a href="javascript:;"
-                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PATCH','{{ route('operator.order.accept', $item->id) }}');"
+                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PATCH','{{ route('operator.pemesanan.accept', $item->id) }}');"
                                             class="btn btn-sm btn-success">
                                             Terima
                                         </a>
                                         <a href="javascript:;"
-                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PATCH','{{ route('operator.order.reject', $item->id) }}');"
+                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PATCH','{{ route('operator.pemesanan.reject', $item->id) }}');"
                                             class="btn btn-sm btn-danger">
                                             Tolak
                                         </a>
@@ -77,4 +80,4 @@
         </div>
     </div>
 </div>
-{{ $orders->links('theme.app.pagination') }} <br>
+{{ $pemesanan->links('theme.app.pagination') }} <br>

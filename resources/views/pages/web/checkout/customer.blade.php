@@ -64,13 +64,6 @@
                                     <span class="text">Payment Method</span>
                                 </a>
                             </div>
-                            {{-- <div class="bread-crumb-sec">
-                                <a>
-                                    <span class="number">4</span>
-                                    <div class="clear"></div>
-                                    <span class="text">Payment Info</span>
-                                </a>
-                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -98,19 +91,7 @@
                                     <input class="right" name="phone" type="text"
                                         onblur="if(this.value == '') { this.value='Phone No'}"
                                         onfocus="if (this.value == 'Phone No') {this.value=''}"
-                                        value="{{ Auth::user()->phone }}">
-                                    <input class="full-input" name="address" type="text"
-                                        onblur="if(this.value == '') { this.value='Address'}"
-                                        onfocus="if (this.value == 'Address') {this.value=''}"
-                                        value="{{ Auth::user()->address }}">
-                                    <input name="city" type="text"
-                                        onblur="if(this.value == '') { this.value='City'}"
-                                        onfocus="if (this.value == 'City') {this.value=''}"
-                                        value="{{ Auth::user()->city }}">
-                                    <input class="right" name="postal_code" type="text"
-                                        onblur="if(this.value == '') { this.value='Postal Code'}"
-                                        onfocus="if (this.value == 'Postal Code') {this.value=''}"
-                                        value="{{ Auth::user()->postal_code }}">
+                                        value="{{ Auth::user()->phone }}"> 
 
 
                                     <button type="submit" class="next-step">Continue to shipping method</button>

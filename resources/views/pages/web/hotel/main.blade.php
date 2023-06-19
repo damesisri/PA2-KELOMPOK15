@@ -50,13 +50,13 @@
 
                                 <div class="price-detail">
 
-                                    <div class="stars">
+                                    {{-- <div class="stars">
                                         <i class="icon-star3"></i>
                                         <i class="icon-star3"></i>
                                         <i class="icon-star3"></i>
                                         <i class="icon-star3"></i>
                                         <i class="icon-star3"></i>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="room-price">
                                         <span class="current">Rp

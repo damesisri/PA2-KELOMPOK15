@@ -11,19 +11,83 @@ class ToiletSeeder extends Seeder
     {
         $data = array(
             [
-                'title' => 'Pemandian ',
+                'title' => 'Kamar Mandi 1 ',
                 'cover' => 'pemandian.jpeg',
                 'price' => '5000',
                 'stock' => '10',
                 'description' => 'Sangat la bersih',
             ],
             [
-                'title' => 'Kolam ',
+                'title' => 'Kamar Mandi 2 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kamar Mandi 3 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kamar Mandi 4 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kamar Mandi 5 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kamar Mandi 6 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kamar Mandi 7 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kamar Mandi 8 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kamar Mandi 9 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kamar Mandi 10 ',
+                'cover' => 'pemandian.jpeg',
+                'price' => '5000',
+                'stock' => '10',
+                'description' => 'Sangat la bersih',
+            ],
+            [
+                'title' => 'Kolam',
                 'cover' => 'kolam.jpeg',
                 'price' => '10000',
                 'stock' => '10',
                 'description' => 'Sangat la bersih',
             ],
+
 
         );
         foreach ($data as $d) {

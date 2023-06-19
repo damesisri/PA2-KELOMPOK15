@@ -6,7 +6,6 @@
                 <div class="col-md-12">
                     <div class="detail">
                         <h1>order now</h1>
-                        <span>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</span>
                         <ul>
                             <li><a href="index-2.html">Home</a></li>
                             <li><a class="select">Order Now</a></li>
@@ -183,13 +182,17 @@
                                                                         Pembayaran</label>
                                                                     <input type="file" class="form-control"
                                                                         id="image" name="image">
+                                                                    @error('image')
+                                                                        <div class="text-danger">
+                                                                            {{ $message }}
+                                                                        </div>
+                                                                    @enderror
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <button class="next-step">Complete order</button>
+                                                    <button class="next-step">Complete order</button>
 
                                             </form>
 
@@ -211,9 +214,61 @@
 
     </div>
     <!--End Content-->
-    @section('custom_js')
+    {{-- @section('custom_js')
         <script>
-            $(document).ready(function() {});
+            $(document).ready(function() {
+                $('.next-step').click(function(e) {
+                    e.preventDefault();
+                    var form = $(this).parents('form');
+                    Swal.fire({
+                        title: 'Apakah anda yakin?',
+                        text: "Pastikan data yang anda masukkan sudah benar!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                url: form.attr('action'),
+                                data: new FormData(form[0]),
+                                type: 'POST',
+                                processData: false,
+                                contentType: false,
+                                success: function(data) {
+                                    if (data.status == 'success') {
+                                        Swal.fire({
+                                            title: 'Berhasil!',
+                                            text: data.message,
+                                            icon: 'success',
+                                            confirmButtonText: 'Ok'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = data.url;
+                                            }
+                                        })
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Gagal!',
+                                            text: data.message,
+                                            icon: 'error',
+                                            confirmButtonText: 'Ok'
+                                        })
+                                    }
+                                },
+                                error: function(data) {
+                                    Swal.fire({
+                                        title: 'Gagal!',
+                                        text: data.message,
+                                        icon: 'error',
+                                        confirmButtonText: 'Ok'
+                                    })
+                                }
+                            });
+                        }
+                    })
+                });
+            });
         </script>
-    @endsection
+    @endsection --}}
 </x-web-layout>

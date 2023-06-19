@@ -14,7 +14,7 @@
                         <div class="col-sm-auto">
                             <div>
                                 <a href="{{ route('operator.booking.pdf') }}" class="btn btn-info add-btn"
-                                    target="_blank" class="menu-link px-3">Cetak</a>
+                                    target="_blank" class="menu-link px-3">Ekspor PDF</a>
                                 <a class="btn btn-info add-btn"
                                     href="{{ route('operator.booking.create') }}"><i></i>Booking</a>
                             </div>

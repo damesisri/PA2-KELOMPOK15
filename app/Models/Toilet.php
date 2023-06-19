@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Cart;
 use App\Models\Category;
-use App\Models\OrderDetail;
+use App\Models\PemesananDetail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -24,13 +24,9 @@ class Toilet extends Model
 
     ];
 
-    public function bookings()
+    public function pemandians()
     {
-        return $this->hasMany(Booking::class);
-    }
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Pemandian::class);
     }
 
     public function carts()
@@ -38,8 +34,8 @@ class Toilet extends Model
         return $this->hasMany(Cart::class);
     }
 
-    public function orderDetails()
+    public function pemesananDetails()
     {
-        return $this->belongsTo(OrderDetail::class);
+        return $this->belongsTo(PemesananDetail::class);
     }
 }

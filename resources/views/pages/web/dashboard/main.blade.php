@@ -131,19 +131,8 @@
                         data-speed="800" data-start="4200" data-easing="Power3.easeInOut" data-splitin="none"
                         data-splitout="none" data-elementdelay="0.05" data-endelementdelay="0.1"
                         style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
-                        <div style="text-align:left; ">
-                            <a href="shop.html" class="read-more"
-                                style=" line-height: initial; color: #fff; border:solid 2px #fff; text-transform: uppercase; font-weight: 500; letter-spacing: 0px; padding: 16px 36px; display: inline-block; font-size: 18px;"></a>
-                        </div>
                     </div>
-
-
-                </li>
-
-
-
-
-
+                </li>v
             </ul>
             <div class="tp-bannertimer"></div>
         </div>
@@ -156,7 +145,6 @@
 
     <!--Start Content-->
     <div class="content">
-
 
         <!--Start Services-->
         <div class="services">
@@ -476,28 +464,156 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row">
 
-                    <div class="serv-main-sec">
-                        @foreach ($toilet as $item)
-                            <div class="col-md-6">
-                                <div class="service-sec">
-                                    <a href="{{ route('web.booking.detail', $item->id) }}">
-                                        <img src="{{ asset('images/toilet/' . $item->cover) }}"
-                                            alt="{{ $item->cover }}" height="600">
+                    <div class="tp-banner-container">
+                        <div class="tp-banner">
+                            <ul>
+                                <!-- SLIDE  -->
 
-                                        <div class="detail">
-                                            <h6>{{ $item->title }}</h6>
-                                            {{-- <p>Kamar ini terdapat fasilitas TV, gorden, gantungan, meja kecil, kursi, kamar
-                                        mandi dalam</p> --}}
-                                            {{-- <a href="room-detail.html">view detail</a> --}}
+
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500"
+                                    data-saveperformance="on" data-title="Intro Slide">
+
+                                    <img src="{{ asset('assets/images/ks/bg1.jpeg') }}" alt=""
+                                        data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+
+
+                                    <div class="tp-caption arrowicon customin  rs-parallaxlevel-10" data-x="center"
+                                        data-y="380"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="850" data-start="1500" data-easing="Power3.easeInOut"
+                                        data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
+                                        style=""><img src="{{ asset('assets-user/images/slides/flower.png') }}"
+                                            alt="">
+                                    </div>
+
+
+                                    <div class="tp-caption grey_heavy_72 customin tp-resizeme rs-parallaxlevel-10"
+                                        data-x="center" data-y="456"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="850" data-start="2500" data-easing="Power3.easeInOut"
+                                        data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
+                                        style="font-size:72px; z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">
+                                    </div>
+
+
+                                    <div class="tp-caption grey_regular_18 customin tp-resizeme rs-parallaxlevel-0"
+                                        data-x="center" data-y="538"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="500" data-start="3500" data-easing="Power3.easeInOut"
+                                        data-splitin="none" data-splitout="none" data-elementdelay="0.05"
+                                        data-endelementdelay="0.1"
+                                        style="font-size:28px; z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+                                        <div style="text-align:left;"></div>
+                                    </div>
+
+                                </li>
+
+
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500"
+                                    data-saveperformance="on" data-title="Intro Slide">
+
+                                    <img src="{{ asset('assets/images/ks/bg2.jpeg') }}" alt=""
+                                        data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+
+
+                                    <div class="tp-caption grey_heavy_72 customin tp-resizeme rs-parallaxlevel-10"
+                                        data-x="0" data-y="376"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="850" data-start="2500" data-easing="Power3.easeInOut"
+                                        data-splitin="chars" data-splitout="none" data-elementdelay="0.1"
+                                        data-endelementdelay="0.1"
+                                        style="font-size:72px; z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">
+                                        {{-- quality food --}}
+                                    </div>
+
+
+                                    <div class="tp-caption grey_regular_18 customin tp-resizeme rs-parallaxlevel-0"
+                                        data-x="0" data-y="468"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="500" data-start="3500" data-easing="Power3.easeInOut"
+                                        data-splitin="chars" data-splitout="none" data-elementdelay="0.1"
+                                        data-endelementdelay="0.1"
+                                        style="font-size:28px; z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+                                        {{-- <div style="text-align:left;">fine food & dining since 1880</div> --}}
+                                    </div>
+
+
+                                    <div class="tp-caption grey_regular_18 customin tp-resizeme rs-parallaxlevel-0"
+                                        data-x="0" data-y="560"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="800" data-start="5900" data-easing="Power3.easeInOut"
+                                        data-splitin="none" data-splitout="none" data-elementdelay="0.05"
+                                        data-endelementdelay="0.1"
+                                        style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+                                        <div style="text-align:left;">
+                                            <a href="#book-table" class="read-more"
+                                                style=" line-height: initial; color: #fff;  border:solid 2px #fff; text-transform: uppercase; font-weight: 500; letter-spacing: 0px; padding: 16px 36px; display: inline-block; font-size: 18px;"></a>
                                         </div>
+                                    </div>
 
-                                </div>
-                            </div>
-                        @endforeach
+
+
+                                </li>
+
+
+                                <li data-transition="fade" data-slotamount="7" data-masterspeed="500"
+                                    data-saveperformance="on" data-title="Intro Slide">
+
+                                    <img src="{{ asset('assets/images/ks/bg3.jpeg') }}" alt=""
+                                        data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+
+
+                                    <div class="tp-caption arrowicon customin  rs-parallaxlevel-10" data-x="center"
+                                        data-y="330"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="850" data-start="1500" data-easing="Power3.easeInOut"
+                                        data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
+                                        style=""><img src="{{ asset('assets-user/images/slides/flower.png') }}"
+                                            alt="">
+                                    </div>
+
+
+                                    <div class="tp-caption grey_heavy_72 customin tp-resizeme rs-parallaxlevel-10"
+                                        data-x="center" data-y="406"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="850" data-start="2500" data-easing="Power3.easeInOut"
+                                        data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="1000"
+                                        style="font-size:72px; z-index: 5; max-width: auto; max-height: auto; white-space: nowrap;">
+                                        {{-- real taste real food --}}
+                                    </div>
+
+
+                                    <div class="tp-caption grey_regular_18 customin tp-resizeme rs-parallaxlevel-0"
+                                        data-x="center" data-y="498"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="500" data-start="3500" data-easing="Power3.easeInOut"
+                                        data-splitin="none" data-splitout="none" data-elementdelay="0.05"
+                                        data-endelementdelay="0.1"
+                                        style="font-size:28px; z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+                                        {{-- <div style="text-align:left;">the passion for the perfect taste</div> --}}
+                                    </div>
+
+
+                                    <div class="tp-caption grey_regular_18 customin tp-resizeme rs-parallaxlevel-0"
+                                        data-x="center" data-y="580"
+                                        data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                        data-speed="800" data-start="4200" data-easing="Power3.easeInOut"
+                                        data-splitin="none" data-splitout="none" data-elementdelay="0.05"
+                                        data-endelementdelay="0.1"
+                                        style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
+                                    </div>
+                                </li>v
+                            </ul>
+                            <div class="tp-bannertimer"></div>
+                        </div>
+                        <div class="wave"></div>
                     </div>
+
 
 
                 </div>
@@ -505,105 +621,6 @@
             </div>
         </div>
         <!--End Services-->
-
-
-
-
-
-
-        {{-- <!--Start Customer Words-->
-        <div class="customer-words">
-
-            <div class="parallax parallax-customer-words">
-                <div class="detail">
-
-                    <div class="main-title-white">
-                        <span>Some Words</span>
-                        <h1>FROM CUSTOMERS</h1>
-                    </div>
-
-                    <div id="testimonials">
-                        <div class="container">
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="span12">
-
-                                        <div id="owl-demo2" class="owl-carousel">
-
-                                            <div class="testi-sec">
-                                                <img src="{{ asset('assets-user/images/testimonial-img1.jpg') }}"
-                                                    alt="">
-                                                <div class="height35"></div>
-                                                <span class="name">Christian Stewart</span>
-                                                <span class="work">Fashion Designer</span>
-                                                <div class="height20"></div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
-                                                    tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae
-                                                    accumsan. interdum hendrerit lacinia.</p>
-                                                <div class="height20"></div>
-                                                <div class="rating">
-                                                    <i class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i>
-                                                </div>
-                                            </div>
-
-                                            <div class="testi-sec">
-                                                <img src="{{ asset('assets-user/images/testimonial-img2.jpg') }}"
-                                                    alt="">
-                                                <div class="height35"></div>
-                                                <span class="name">johny Bravo</span>
-                                                <span class="work">TV Actor</span>
-                                                <div class="height20"></div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
-                                                    tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae
-                                                    accumsan. interdum hendrerit lacinia Aenean ac tortor at tellus
-                                                    feugiat congue quis ut nunc. Semper ac dolor vitae accumsan. </p>
-                                                <div class="height20"></div>
-                                                <div class="rating">
-                                                    <i class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i>
-                                                </div>
-                                            </div>
-
-                                            <div class="testi-sec">
-                                                <img src="{{ asset('assets-user/images/testimonial-img3.jpg') }}"
-                                                    alt="">
-                                                <div class="height35"></div>
-                                                <span class="name">Rubica noi</span>
-                                                <span class="work">Founder Photography</span>
-                                                <div class="height20"></div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac
-                                                    tortor at tellus feugiat congue quis ut nunc. Semper ac dolor vitae
-                                                    accumsan.</p>
-                                                <div class="height20"></div>
-                                                <div class="rating">
-                                                    <i class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i> <i class="icon-star3"></i> <i
-                                                        class="icon-star3"></i>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-        <!--End Customer Words--> --}}
-
-
-
     </div>
     <!--End Content-->
 

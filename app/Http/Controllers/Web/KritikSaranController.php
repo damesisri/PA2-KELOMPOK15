@@ -41,7 +41,7 @@ class KritikSaranController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Kritik dan saran berhasil ditambahkan!'
+            'message' => 'Kritik dan saran berhasil ditambahkan!',
         ]);
     }
 }

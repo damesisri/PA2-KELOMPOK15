@@ -6,10 +6,10 @@
                 <div class="login-card">
                     <div>
                         <div>
-                            <a class="logo" href="index-2.html"><img class="img-fluid for-light"
-                                    src="{{ asset('assets-auth/images/logo/logo-icon.png') }}" alt="looginpage"><img
-                                    class="img-fluid for-dark"
-                                    src="{{ asset('assets-auth/images/logo/logo-white.png') }}" alt="looginpage"></a>
+                            <a class="logo"><img class="img-fluid for-light"
+                                    src="{{ asset('assets/images/ks/logobg.png') }}" alt="looginpage" width="150"><img
+                                    class="img-fluid for-dark" src="{{ asset('assets/images/ks/logobg.png') }}"
+                                    alt="looginpage" width="150"></a>
                         </div>
                         <div class="login-main">
                             <form class="theme-form" id="form_login">
@@ -39,7 +39,9 @@
                                             class="btn btn-primary btn-block w-100">Sign in</button>
                                     </div>
                                 </div>
-
+                                <p class="mt-3 mb-0 text-left">
+                                    <a href="{{ route('forgot') }}">Forgot Password?</a>
+                                </p>
                                 <p class="mt-4 mb-0 text-center">Don't have account?<a class="ms-2"
                                         href="{{ route('register') }}">Create Account</a></p>
                             </form>

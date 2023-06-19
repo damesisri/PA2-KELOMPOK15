@@ -46,21 +46,21 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($orders as $order)
+            @foreach ($pemesanan as $pemesanan)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $order->code }}</td>
-                    <td class="text-nowrap">{{ $order->user->fullname }}</td>
-                    <td>{{ $order->user->phone }}</td>
+                    <td>{{ $pemesanan->code }}</td>
+                    <td class="text-nowrap">{{ $pemesanan->user->fullname }}</td>
+                    <td>{{ $pemesanan->user->phone }}</td>
                     <td style="width:125px;">
-                        @foreach ($order->orderDetails as $item)
+                        @foreach ($pemesanan->pemesananDetails as $item)
                             - {{ $item->product->title }}
                             <br>
                         @endforeach
                     </td>
-                    <td>Rp.{{ $order->total }}</td>
-                    <td class="text-nowrap">{{ $order->payment }}</td>
-                    <td class="text-nowrap">{{ $order->created_at->translatedFormat('l, d-m-Y') }}</td>
+                    <td>Rp.{{ $pemesanan->total }}</td>
+                    <td class="text-nowrap">{{ $pemesanan->payment }}</td>
+                    <td class="text-nowrap">{{ $pemesanan->created_at->translatedFormat('l, d-m-Y') }}</td>
                 </tr>
             @endforeach
         </tbody>

@@ -14,8 +14,8 @@ class Transaction extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function order()
+    public function pemesanan()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Pemesanan::class);
     }
 }
