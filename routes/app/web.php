@@ -28,7 +28,10 @@ Route::group(['domain' => ''], function () {
         Route::post('penginapan/storeReservation', [PenginapanController::class, 'storeReservation'])->name('penginapan.storeReservation');
         Route::put('penginapan/{id}', [PenginapanController::class, 'update'])->name('penginapan.update');
         Route::post('penginapan/payment', [PenginapanController::class, 'updatePayment'])->name('penginapan.payment');
+<<<<<<< HEAD
         Route::get('penginapan/pdf', [PenginapanController::class, 'pdf'])->name('penginapan.pdf');
+=======
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
 
 
         Route::post('penginapan/{id}/store', [PenginapanController::class, 'store'])->name('penginapan.store')->middleware('auth');
@@ -42,6 +45,7 @@ Route::group(['domain' => ''], function () {
 
         Route::get('pemandian', [PemandianController::class, 'index'])->name('pemandian');
         Route::get('pemandian/{id}/detail', [PemandianController::class, 'detail'])->name('booking.detail');
+<<<<<<< HEAD
         Route::post('pemandian/book', [PemandianController::class, 'book'])->name('pemandian.book');
         Route::get('pemandian/{id}/create', [PemandianController::class, 'create'])->name('pemandian.create');
         Route::get('pemandian/history', [PemandianController::class, 'history'])->name('pemandian.history');
@@ -52,6 +56,12 @@ Route::group(['domain' => ''], function () {
 
         Route::post('pemandian/check', [PemandianController::class, 'check'])->name('pemandian.check');
 
+=======
+        Route::post('pemandian/{id}/book', [PemandianController::class, 'makeBooking'])->name('pemandian.book');
+        Route::get('pemandian/create', [PemandianController::class, 'create'])->name('pemandian.create');
+        Route::get('pemandian/pdf', [PemandianController::class, 'pdf'])->name('pemandian.pdf');
+
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
 
         Route::get('kritik-saran', [KritikSaranController::class, 'index'])->name('kritik');
         Route::post('kritik-saran/store', [KritikSaranController::class, 'store'])->name('kritik.store');

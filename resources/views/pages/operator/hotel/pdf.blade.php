@@ -29,7 +29,11 @@
             </tr>
         </thead>
         <tbody class="list form-check-all">
+<<<<<<< HEAD
             @foreach ($penginapans as $item)
+=======
+            @foreach ($reservations as $item)
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->user->fullname }}</td>

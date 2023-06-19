@@ -79,6 +79,7 @@
                         <h1>Pembayaran </h1>
 
                         <div class="room-overview">
+<<<<<<< HEAD
                             <div class="detail"><span><strong>Nama :</strong> {{ Auth::user()->fullname }}</span></div>
                             <div class="detail light-gray"><span><strong>Check
                                         In:</strong>{{ $penginapan->checkin_date }} </span></div>
@@ -93,6 +94,24 @@
                                     {{ number_format($penginapan->total_price, 0, ',', '.') }}</span></div>
                             <div class="detail light-gray"><span><strong>Status :</strong>
                                     {{ $penginapan->status }}</span></div><br><br>
+=======
+                            <div class="detail"><span><strong>Nama :</strong> Queen</span></div>
+                            <div class="detail light-gray"><span><strong>Check
+                                        In:</strong>{{ $reservation->checkin_date }} </span></div>
+                            <div class="detail"><span><strong>Check Out</strong>{{ $reservation->checkout_date }}</span>
+                            </div>
+                            <div class="detail light-gray"><span><strong>Adults</strong>
+                                    {{ $reservation->adults }}</span></div>
+                            <div class="detail"><span><strong>Children</strong> {{ $reservation->children }}</span>
+                            </div>
+                            <div class="detail light-gray"><span><strong>Nights:</strong>
+                                    {{ $reservation->getDays($reservation->checkin_date, $reservation->checkout_date) }}</span>
+                            </div>
+                            <div class="detail"><span><strong>Total :</strong> Rp.
+                                    {{ number_format($reservation->total_price, 0, ',', '.') }}</span></div>
+                            <div class="detail light-gray"><span><strong>Status :</strong>
+                                    {{ $reservation->status }}</span></div><br><br>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                         </div>
                         <div class="cash-payment">
                             <div class="cash-delivery">
@@ -123,7 +142,11 @@
                                             </div>
                                         </div>
 
+<<<<<<< HEAD
                                         {{-- <div class="shipping-method">
+=======
+                                        <div class="shipping-method">
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                                             <div class="shipping-across">
                                                 <div data-bs-toggle="collapse"
                                                     data-bs-target="#paymentmethodCollapse.show" aria-expanded="false"
@@ -141,6 +164,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+<<<<<<< HEAD
                                         </div> --}}
 
                                         <div class="shipping-method">
@@ -165,6 +189,31 @@
 
                                         <form action="{{ route('web.penginapan.payment') }}"
                                             enctype="multipart/form-data" method="POST">
+=======
+                                        </div>
+
+                                        <div class="shipping-method">
+                                            <div class="shipping-across">
+                                                <div data-bs-toggle="collapse"
+                                                    data-bs-target="#paymentmethodCollapse.show" aria-expanded="false"
+                                                    aria-controls="paymentmethodCollapse">
+                                                    <div class="form-check card-radio">
+                                                        <input id="shippingMethod03" name="payment" type="radio"
+                                                            value="E-money" class="form-check-input">
+                                                        <label class="form-check-label" for="shippingMethod03">
+                                                            <span
+                                                                class="fs-20 float-end mt-2 text-wrap d-block fw-semibold">E-Money</span>
+                                                            <span class="fs-14 mb-1 text-wrap d-block">Dana</span>
+                                                            <span
+                                                                class="text-muted fw-normal text-wrap d-block">089688875900</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <form action="{{ route('web.penginapan.payment') }}" enctype="multipart/form-data" method="POST">
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                                             @csrf
                                             <div class="shipping-method" id="paymentmethodCollapse">
                                                 <div class="shipping-across">

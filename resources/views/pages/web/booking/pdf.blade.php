@@ -41,11 +41,19 @@
             <th>Person</th>
             <th>Booking Status</th>
         </tr>
+<<<<<<< HEAD
         @foreach ($pemandian as $item)
             @if (Auth::user()->id == $item->user_id)
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->user->fullname }}</td>
+=======
+        @foreach ($booking as $item)
+            @if (Auth::user()->id == $item->user_id)
+                <tr>
+                    <td>{{ $item->id }}</td>
+                    <td>{{ $item->username }}</td>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                     <td>{{ $item->toilet->title }}</td>
                     <td>{{ $item->book_date }}</td>
                     <td>{{ $item->book_time }}</td>

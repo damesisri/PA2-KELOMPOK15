@@ -42,11 +42,7 @@
         </div>
         <div class="banner-img"></div>
     </div>
-
-
     <!--End Sub Banner-->
-
-
 
     <!--Start Content-->
     <div class="content">
@@ -67,7 +63,6 @@
                             <div class="item"><img src="{{ asset('images/hotel/' . $hotel->cover) }}" alt="">
                             </div>
                         </div>
-
 
                         <div class="what-include">
                             <div class="include-sec">
@@ -94,43 +89,82 @@
                                 <img src="{{ asset('imgs/icon-car.png') }}" alt="">
                                 <span>Free Parking</span>
                             </div>
-
                         </div>
-
 
                         <div class="room-descrip">
                             <h5>Room Description</h5>
+<<<<<<< HEAD
                             <p>Muatan Maksimal 4 Orang</p>
                             </p>
                         </div>
+=======
+                            <p>Semper ac dolor vitae accumsan. interdum hendrerit lacinia. Etiam eget urna augue.
+                                Aenean posuere pharetra tortor eu sodales. Aenean vitae facilisis ligula.<br /><br />
+                                Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada
+                                fames ac turpis egestas. Aenean vitae facilisis ligula. Quisque dictum neque in lectus
+                                cursus congue. Phasellus sodales condimentum rutrum.
+                            </p>
+                        </div>
+<<<<<<< HEAD
+=======
+
+                        <div class="room-descrip">
+                            <h5>Room Overview</h5>
+                            <p>Semper ac dolor vitae accumsan. interdum hendrerit lacinia. Etiam eget urna augue.
+                                Aenean posuere pharetra tortor eu sodales. Aenean vitae facilisis ligula.</p>
+                        </div>
+
+                        <div class="room-overview">
+                            <div class="detail"><span><strong>Bed:</strong> Queen</span></div>
+                            <div class="detail light-gray"><span><strong>Occupancy:</strong> 2 Persons</span></div>
+                            <div class="detail"><span><strong>Ensuite Bathroom:</strong> Yes</span></div>
+                            <div class="detail light-gray"><span><strong>Free Airport Pickup:</strong> Yes</span></div>
+                            <div class="detail"><span><strong>Breakfast Included:</strong> Yes (Continental)</span>
+                            </div>
+                            <div class="detail light-gray"><span><strong>Free Internet:</strong> Yes</span></div>
+                            <div class="detail"><span><strong>Gym Access:</strong> 24/7</span></div>
+                        </div>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                     </div>
 
-
                     <div class="col-md-4">
-
                         <div class="booking-form">
+<<<<<<< HEAD
 
                             {{-- <div class="rating">
+=======
+                            <div class="rating">
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                                 <i class="icon-star-full"></i><i class="icon-star-full"></i><i
                                     class="icon-star-full"></i><i class="icon-star-full"></i><i
                                     class="icon-star-full"></i>
                             </div> --}}
 
                             <div class="price">
-
                                 <span>Room From Per Night</span>
-                                <span class="amount">
-                                    {{ number_format($hotel->price) }}</span>
-
+                                <span class="amount">{{ number_format($hotel->price) }}</span>
                             </div>
 
+<<<<<<< HEAD
 
                             <form class="form" method="POST" id="form_penginapan"
                                 action="{{ route('web.penginapan.book') }}" novalidate="novalidate">
+<<<<<<< HEAD
+=======
+=======
+                            <form id="bookingForm" class="form" method="POST"
+                                action="{{ route('web.penginapan.create', $hotel->id) }}">
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                                 @csrf
                                 <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
                                 <input type="hidden" name="price" value="{{ $hotel->price }}">
                                 <div class="field">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                                     <input type="text" class="date-pick form-control" id="datepicker"
                                         placeholder="Appointment Date" onClick="" name="checkin" value="Check In"
                                         onblur="if(this.value == '') { this.value='Check In'}"
@@ -144,28 +178,76 @@
                                         onfocus="if (this.value == 'Check Out') {this.value=''}" autocomplete="off" />
                                 </div>
 
+<<<<<<< HEAD
                                 <div style="margin-bottom: 10px;">
                                     <input class="form-control m-3" type="text" name="adults" id="totalAdult"
                                         placeholder="Maksimal 2 Orang" value="2" readonly>
                                 </div>
                                 <button type="button" class="cool-button" id="btn_check">Pesan Kamar</button>
+=======
+                                <div class="field field2">
+                                    <select class="basic-example" id="totalAdult" name="adults">
+=======
+                                    <input type="text" id="datepicker" placeholder="Check In" name="checkin"
+                                        value="" required>
+                                </div>
+
+                                <div class="field">
+                                    <input type="text" id="datepicker2" placeholder="Check Out" name="checkout"
+                                        value="" required>
+                                </div>
+
+                                <div class="field field2">
+                                    <select class="basic-example" id="reserv_time" name="adults" required>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+                                        <option value="">Adults</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5+</option>
+                                    </select>
+                                </div>
+
+                                <div class="field field2 last">
+<<<<<<< HEAD
+                                    <select class="basic-example" id="totalChildren" name="children">
+=======
+                                    <select class="basic-example" id="people_total" name="children" required>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+                                        <option value="">Children</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5+</option>
+                                    </select>
+                                </div>
+
+<<<<<<< HEAD
 
 
+                                <button type="button" class="availability" id="btn_check">Pesan Kamar</button>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+
+
+=======
+                                <button type="button" id="checkAvailabilityBtn" class="availability">Pesan
+                                    Kamar</button>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
                             </form>
-
 
                             <div class="clear"></div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
         <!--End Rooms-->
-
     </div>
     <!--End Content-->
 
+<<<<<<< HEAD
     @section('script')
         <script>
             function checkAvailability() {
@@ -180,9 +262,16 @@
                 // Ubah tanggal menjadi objek Date untuk membandingkannya
                 var checkin = new Date(checkinDate);
                 var checkout = new Date(checkoutDate);
+<<<<<<< HEAD
                 // Validasi tanggal
                 if (checkin.getTime() === checkout.getTime()) {
                     toastr.error('Tanggal check-in dan check-out tidak boleh dipesan diwaktu yang sama.');
+=======
+
+                // Validasi tanggal
+                if (checkin.getTime() === checkout.getTime()) {
+                    toastr.error('Tanggal check-in dan check-out tidak boleh sama.');
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                     return;
                 }
 
@@ -191,6 +280,7 @@
                     return;
                 }
 
+<<<<<<< HEAD
                 // Validasi jika tanggal yang sudah lewat dipilih
                 var today = new Date();
                 if (checkin.getTime() < today.getTime()) {
@@ -244,6 +334,8 @@
 
 
 
+=======
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                 $.ajax({
                     url: "/penginapan/check",
                     type: "POST",
@@ -276,6 +368,13 @@
                 });
             });
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
             function load_data(page) {
                 $.get("?page=" + page, {
 
@@ -286,4 +385,36 @@
             load_data(1);
         </script>
     @endsection
+=======
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function checkAvailability() {
+            var dates = $("#datepicker").val().split('>');
+            var checkin = dates[0];
+            var checkout = dates[1];
+            var adults = $("#reserv_time").val();
+            var children = $("#people_total").val();
+            // Kirim data form menggunakan Ajax
+            $.ajax({
+                url: "{{ route('web.penginapan.check') }}",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    check_in: check_in,
+                    check_out: check_out,
+                    homestay_id: homestay_id
+                },
+                success: function(response) {
+                    if (response.status == 'success') {
+                        toastr.success(response.message);
+                        $("#checkAvailabilityBtn").prop('disabled', false);
+                    } else {
+                        $("#checkAvailabilityBtn").prop('disabled', true);
+                        toastr.error(response.message);
+                    }
+                }
+            });
+        }
+    </script>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
 </x-web-layout>

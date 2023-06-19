@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Operator;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use App\Models\Penginapan;
+=======
+use App\Models\Reservation;
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
 use Carbon\Carbon;
 use PDF;
 use Illuminate\Support\Facades\Auth;
@@ -16,13 +20,21 @@ class HotelController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
+<<<<<<< HEAD
             // $hotel = penginapan::where('title', 'like', '%' . $request->keyword . '%')
+=======
+            // $hotel = Reservation::where('title', 'like', '%' . $request->keyword . '%')
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
             //     ->orWhere('description', 'like', '%' . $request->keyword . '%')
             //     ->orWhere('price', 'like', '%' . $request->keyword . '%')
             //     ->orWhere('stock', 'like', '%' . $request->keyword . '%')
             //     ->orWhere('category', 'like', '%' . $request->keyword . '%')
             //     ->paginate(10);
+<<<<<<< HEAD
             $hotel = Penginapan::paginate(10);
+=======
+            $hotel = Reservation::paginate(10);
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
             return view('pages.operator.hotel.list', compact('hotel'));
         }
         return view('pages.operator.hotel.main');
@@ -34,6 +46,7 @@ class HotelController extends Controller
         return view('pages.operator.hotel.create', compact('hotel'));
     }
 
+<<<<<<< HEAD
     public function show(Penginapan $penginapan)
     {
         return view('pages.operator.orders.show', compact('penginapan'));
@@ -43,12 +56,24 @@ class HotelController extends Controller
     {
         $penginapan->status = 'accepted';
         $penginapan->save();
+=======
+    public function show(Reservation $reservation)
+    {
+        return view('pages.operator.orders.show', compact('reservation'));
+    }
+
+    public function accept(Reservation $reservation)
+    {
+        $reservation->status = 'accepted';
+        $reservation->save();
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
 
         return response()->json([
             'alert' => 'success',
             'message' => 'Pesanan berhasil diterima',
         ]);
     }
+<<<<<<< HEAD
     public function makePenginapan(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -79,6 +104,29 @@ class HotelController extends Controller
         $penginapan->payment_proof = 'Cash';
         $penginapan->status = 'pending';
         $penginapan->save();
+=======
+    public function makeReservation(Request $request)
+    {
+        $request->validate([
+            'check_in' => 'required',
+            'check_out' => 'required',
+            'adults' => 'required',
+            'children' => 'required',
+        ]);
+
+        $hotel = Hotel::find($request->hotel_id);
+
+        $reservation = new Reservation();
+        $reservation->hotel_id = $hotel->id;
+        $reservation->user_id = Auth::user()->id;
+        $reservation->check_in = $request->check_in;
+        $reservation->check_out = $request->check_out;
+        $reservation->adults = $request->adults;
+        $reservation->children = $request->children;
+        $reservation->payment = 'Cash';
+        $reservation->status = 'pending';
+        $reservation->save();
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
 
         return response()->json([
             'alert' => 'success',
@@ -87,26 +135,41 @@ class HotelController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
     public function reject(Penginapan $penginapan)
     {
         $penginapan->status = 'rejected';
         $penginapan->save();
+=======
+    public function reject(Reservation $reservation)
+    {
+        $reservation->status = 'rejected';
+        $reservation->save();
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
 
         return response()->json([
             'alert' => 'success',
             'message' => 'Pesanan berhasil ditolak',
         ]);
     }
+<<<<<<< HEAD
     public function finish(Penginapan $penginapan)
     {
         $penginapan->status = 'completed';
         $penginapan->save();
+=======
+    public function finish(Reservation $reservation)
+    {
+        $reservation->status = 'completed';
+        $reservation->save();
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
 
         return response()->json([
             'alert' => 'success',
             'message' => 'Pesanan berhasil diselesaikan',
         ]);
     }
+<<<<<<< HEAD
 
     public function destroy(Penginapan $penginapan)
     {
@@ -122,6 +185,13 @@ class HotelController extends Controller
         $now = Carbon::now()->translatedFormat('l, d F Y');
         $penginapans = Penginapan::orderBy('created_at', 'DESC')->get();
         $pdf = PDF::loadView('pages.operator.hotel.pdf', ['penginapans' => $penginapans]);
+=======
+    public function pdf()
+    {
+        $now = Carbon::now()->translatedFormat('l, d F Y');
+        $reservations = Reservation::orderBy('created_at', 'DESC')->get();
+        $pdf = PDF::loadView('pages.operator.hotel.pdf', ['reservations' => $reservations]);
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
         // return $pdf->stream();
         return $pdf->download($now . '.pdf');
     }

@@ -35,6 +35,58 @@ class PemandianController extends Controller
     }
 
     public function PDF()
+<<<<<<< HEAD
+=======
+    {
+        $booking = Booking::all();
+        $pdf = PDF::loadview('pages.web.booking.pdf', compact('booking'));
+
+        return $pdf->download('laporan-booking.pdf');
+    }
+
+    // public function check(Toilet $toilet){
+    //     return view('pages.web.toilet.check', compact('toilet'));
+    // }
+
+    // public function makeBooking(Request $request, $toilet)
+    // {
+    //     $validatedData = Validator::make($request->all(), [
+    //         'username' => 'required',
+    //         'book_date' => 'required|date',
+    //         'book_time' => 'required|date_format:H:i',
+    //         'person' => 'required|integer|min:1',
+    //     ]);
+
+    //     if ($validatedData->fails()) {
+    //         return response()->json([
+    //             'status' => 'error',
+    //             'message' => $validatedData->errors()->first()
+    //         ]);
+    //     }
+
+    //     // $toilet = Toilet::findOrFail($id);
+    //     $booking = new Booking();
+    //     $booking->user_id = auth()->user()->id;
+    //     $booking->toilet_id = $toilet;
+    //     $booking->username = $request->username;
+    //     $booking->book_date = Carbon::createFromFormat('m/d/Y', $request->book_date)->format('Y-m-d');
+    //     $booking->book_time = $request->book_time;
+    //     $booking->person = $request->person;
+    //     // $booking->status = 'pending';
+    //     // dd($request->all());
+    //     // dd($booking);
+
+    //     $booking->save();
+
+    //     // return redirect('pemandian.create')->with('success', 'Booking Berhasil Dibuat');
+    //     return response()->json([
+    //         'status' => 'success',
+    //         'message' => 'Booking berhasil dibuat',
+
+    //     ]);
+    // }
+    public function store(Request $request, $toilet)
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
     {
         $pemandian = Pemandian::all();
         $pdf = PDF::loadview('pages.web.booking.pdf', compact('pemandian'));
