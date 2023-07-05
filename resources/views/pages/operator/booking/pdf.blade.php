@@ -68,18 +68,56 @@
                             <th>Tanggal</th>
                             <th>Jam</th>
                             <th>Jumlah</th>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($pemandian as $item)
+<<<<<<< HEAD
+=======
+=======
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($booking as $item)
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->toilet->title }}</td>
                                 {{-- <td>{{$item->category}}</td> --}}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                 <td>{{ $item->user->fullname }}</td>
                                 <td>{{ $item->book_date }}</td>
                                 <td>{{ $item->book_time }}</td>
                                 <td>{{ $item->person }}</td>
+<<<<<<< HEAD
+=======
+=======
+                                <td>{{ $item->username }}</td>
+                                <td>{{ $item->book_date }}</td>
+                                <td>{{ $item->book_time }}</td>
+                                <td>{{ $item->person }}</td>
+                                <td>
+                                    @if ($item->status == 'pending')
+                                        <span class="badge badge-soft-warning text-uppercase">Menunggu</span>
+                                    @elseif($item->status == 'accepted')
+                                        <span class="badge badge-soft-success text-uppercase">Diterima</span>
+                                    @elseif($item->status == 'rejected')
+                                        <span class="badge badge-soft-danger text-uppercase">Ditolak</span>
+                                    @elseif($item->status == 'Completed')
+                                        <span class="badge badge-soft-primary text-uppercase">Selesai</span>
+                                    @endif
+                                </td>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                             </tr>
                         @endforeach
                     </tbody>

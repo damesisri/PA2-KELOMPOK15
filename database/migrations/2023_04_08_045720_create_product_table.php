@@ -18,7 +18,11 @@ class CreateProductTable extends Migration
             $table->string('title')->unique();
             $table->string('cover');
             $table->string('price', 10);
+<<<<<<< HEAD
             $table->string('stock', 4);
+=======
+            // $table->string('stock', 3);
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
             $table->text('description');
             $table->enum('status', ['available', 'unavailable'])->default('available');
             $table->string('category');

@@ -72,7 +72,15 @@
                         </div>
 
                     </div>
+<<<<<<< HEAD
                     <h3 class="mb-2"><span class="counter-value" data-target="">{{ $total_penginapans }}</span><small
+=======
+<<<<<<< HEAD
+                    <h3 class="mb-2"><span class="counter-value" data-target="">{{ $total_penginapans }}</span><small
+=======
+                    <h3 class="mb-2"><span class="counter-value" data-target="">{{ $total_reservations }}</span><small
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                             class="text-muted fs-13"></small></h3>
                     <h6 class="text-muted mb-0">Total Pemesanan (Pending)</h6>
                 </div>
@@ -115,35 +123,108 @@
                 <div class="card">
                     <div class="card-header border-0 align-items-center d-flex">
                         <h4 class="card-title mb-0 flex-grow-1">KaruniaSipoholon</h4>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                        <div>
+                            <button type="button" class="btn btn-soft-secondary btn-sm">
+                                ALL
+                            </button>
+                            <button type="button" class="btn btn-soft-secondary btn-sm">
+                                1M
+                            </button>
+                            <button type="button" class="btn btn-soft-secondary btn-sm">
+                                6M
+                            </button>
+                            <button type="button" class="btn btn-soft-primary btn-sm">
+                                1Y
+                            </button>
+                        </div>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                     </div><!-- end card header -->
 
                     <div class="card-header p-0 border-0 bg-soft-light">
                         <div class="row g-0 text-center">
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                     <h5 class="mb-1">Rp.<span class="counter-value"
                                             data-target="9851">{{ $yearpemesanan }}</span></h5>
                                     <p class="text-muted mb-0">Restaurant</p>
                                 </div>
                             </div>
                             <!--end col-->
+<<<<<<< HEAD
+=======
+=======
+                                    <h5 class="mb-1"><span class="counter-value"
+                                            data-target="9851">{{ $total_order }}</span></h5>
+                                    <p class="text-muted mb-0">Order</p>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-6 col-sm-3">
+                                <div class="p-3 border border-dashed border-start-0">
+<<<<<<< HEAD
+                                    <h5 class="mb-1"><span class="counter-value"
+                                            data-target="1026">{{ $total_reservations }}</span></h5>
+=======
+                                    <h5 class="mb-1"><span class="counter-value" data-target="1026">0</span></h5>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+                                    <p class="text-muted mb-0">Hotel</p>
+                                </div>
+                            </div>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                             <!--end col-->
                             <div class="col-6 col-sm-3">
                                 <div class="p-3 border border-dashed border-start-0">
                                     <h5 class="mb-1">Rp.<span class="counter-value"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                             data-target="228.89">{{ $yeartotalpemesanan }}</span></h5>
                                     <p class="text-muted mb-0">Total Per Tahun</p>
                                 </div>
                             </div>
                             <!--end col-->
                             {{-- <div class="col-6 col-sm-3">
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+                                            data-target="228.89">{{ $yeartotal + $yearreservation }}</span></h5>
+=======
+                                            data-target="228.89">{{ $yeartotal }}</span></h5>
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+                                    <p class="text-muted mb-0">Revenue</p>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-6 col-sm-3">
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                 <div class="p-3 border border-dashed border-start-0 border-end-0">
                                     <h5 class="mb-1 text-success"><span class="counter-value"
                                             data-target="10589"></span>Rp.</h5>
                                     <p class="text-muted mb-0"></p>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <!--end col--> --}}
+=======
+<<<<<<< HEAD
+                            <!--end col--> --}}
+=======
+                            <!--end col-->
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                         </div>
                     </div><!-- end card header -->
                     <div class="card-body p-0 pb-2">
@@ -151,6 +232,10 @@
                             <div id="mychart"></div>
                         </div>
                     </div><!-- end card body -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                     <div class="card-header p-0 border-0 bg-soft-light">
                         <div class="row g-0 text-center">
                             <div class="col-6 col-sm-3">
@@ -219,12 +304,23 @@
                             <div id="mychart2"></div>
                         </div>
                     </div><!-- end card body -->
+<<<<<<< HEAD
                     {{-- <div class="card-body p-0 pb-2">
                         <div>
                             <div id="pie"></div>
                         </div>
                     </div><!-- end card body --> --}}
 
+=======
+                    <div class="card-body p-0 pb-2">
+                        <div>
+                            <div id="pie"></div>
+                        </div>
+                    </div><!-- end card body -->
+
+=======
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                 </div><!-- end card -->
             </div><!-- end col -->
         </div><!-- end row -->
@@ -261,7 +357,15 @@
         <script>
             Highcharts.chart('mychart', {
                 chart: {
+<<<<<<< HEAD
                     type: 'column',
+=======
+<<<<<<< HEAD
+                    type: 'column',
+=======
+                    type: 'column'
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                 },
                 title: {
                     text: 'Monthly Average '
@@ -307,6 +411,10 @@
                     }
                 },
                 series: [{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                     name: 'Restaurant',
                     data: [{{ $januarySum }}, {{ $februarySum }}, {{ $marchSum }},
                         {{ $aprSum }},
@@ -367,15 +475,51 @@
                 },
                 series: [{
                     name: 'Hotel',
+<<<<<<< HEAD
+=======
+=======
+                    name: 'Order',
+<<<<<<< HEAD
+                    data: [{{ $januarySum }}, {{ $februarySum }}, {{ $marchSum }}, {{ $aprSum }},
+                        {{ $maySum }}, {{ $juneSum }}, {{ $julySum }},
+                        {{ $augustSum }}, {{ $sepSum }},
+                        {{ $octSum }}, {{ $novSum }}, {{ $decSum }}
+=======
+                    data: [{{ $januarySum }}, {{ $februarySum }}, {{ $marchSum }}, {{ $aprilSum }},
+                        {{ $maySum }}, {{ $juneSum }}, {{ $julySum }},
+                        {{ $augustSum }}, {{ $septemberSum }},
+                        {{ $octoberSum }}, {{ $novemberSum }}, {{ $decemberSum }}
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+                    ]
+
+                }, {
+                    name: 'Hotel',
+<<<<<<< HEAD
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                     data: [{{ $januariSum }}, {{ $februariSum }}, {{ $maretSum }},
                         {{ $aprilSum }},
                         {{ $meiSum }}, {{ $juniSum }}, {{ $juliSum }},
                         {{ $agustusSum }}, {{ $septemberSum }},
                         {{ $oktoberSum }}, {{ $novemberSum }}, {{ $desemberSum }}
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+                    data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5,
+                        106.6, 92.3
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                     ]
                 }]
             });
         </script>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
         <script>
             Highcharts.chart('mychart2', {
                 chart: {
@@ -435,7 +579,11 @@
                 }]
             });
         </script>
+<<<<<<< HEAD
         {{-- <script>
+=======
+        <script>
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
             // Data retrieved from https://netmarketshare.com/
             // Make monochrome colors
 
@@ -485,5 +633,12 @@
                     }, ]
                 }]
             });
+<<<<<<< HEAD
         </script> --}}
+=======
+        </script>
+=======
+
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
 </x-app-layout>

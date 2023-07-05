@@ -21,7 +21,16 @@ class CreatePenginapanTable extends Migration
             $table->date('checkout_date');
             $table->enum('status', ['pending', 'accepted', 'rejected', 'completed'])->default('Pending');
             $table->integer('adults');
+<<<<<<< HEAD
             $table->double('total_price')->nullable(false);
+=======
+<<<<<<< HEAD:database/migrations/2023_05_26_023119_create_penginapan_table.php
+            $table->double('total_price')->nullable(false);
+=======
+            $table->integer('children');
+            $table->double('total_price', 8, 2)->nullable(false);
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b:database/migrations/2023_05_26_023119_create_reservation_table.php
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
             $table->string('payment_proof')->nullable();
             // $table->string('status')->nullable(false)->default('pending')->comment('pending, booked, canceled');
             // $table->string('snap_token', 36)->nullable();

@@ -84,7 +84,7 @@
                         <a class="nav-link menu-link" href="{{ route('operator.hotel.index') }}" role="button"
                             aria-expanded="false" aria-controls="sidebarDashboards">
                             <i class="ri-shopping-bag-3-line"></i> <span data-key="t-books">Hotel</span>
-                        </a>
+                        </a>gi
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="{{ route('operator.order.index') }}" role="button"

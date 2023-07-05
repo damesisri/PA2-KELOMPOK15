@@ -25,11 +25,23 @@
                 <th>Check in</th>
                 <th>Check out</th>
                 <th>Total Price</th>
+<<<<<<< HEAD
                 {{-- <th>Payment Proof</th> --}}
             </tr>
         </thead>
         <tbody class="list form-check-all">
             @foreach ($penginapans as $item)
+=======
+                <th>Payment Proof</th>
+            </tr>
+        </thead>
+        <tbody class="list form-check-all">
+<<<<<<< HEAD
+            @foreach ($penginapans as $item)
+=======
+            @foreach ($reservations as $item)
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->user->fullname }}</td>
@@ -48,14 +60,22 @@
                             <span class="badge badge-soft-primary text-uppercase">Selesai</span>
                         @endif
                     </td> --}}
+<<<<<<< HEAD
                     {{-- <td>
+=======
+                    <td>
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                         @if ($item->payment_proof != 'Cash')
                             <img src="{{ asset('images/bukti_pembayaran/' . $item->payment_proof) }}"
                                 class="card-img-top">
                         @else
                             Pembayaran Cash
                         @endif
+<<<<<<< HEAD
                     </td> --}}
+=======
+                    </td>
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                 </tr>
             @endforeach
         </tbody>

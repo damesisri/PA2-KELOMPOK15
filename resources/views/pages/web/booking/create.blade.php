@@ -36,6 +36,7 @@
             line-height: 20px;
         }
     </style>
+<<<<<<< HEAD
     <!--Start Sub Banner-->
     <div class="sub-banner">
         <div class="container">
@@ -47,10 +48,25 @@
                         <ul>
                             <li><a href="#">Home</a></li>
                         </ul>
+=======
+    < !--Start Sub Banner-->
+        <div class="sub-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="detail">
+                            <h1>Booking now</h1>
+                            <ul>
+                                <li><a href="index-2.html">Home</a></li>
+                            </ul>
+                        </div>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
                     </div>
                 </div>
             </div>
+            <div class="banner-img"></div>
         </div>
+<<<<<<< HEAD
         <div class="banner-img"></div>
     </div>
 
@@ -204,6 +220,7 @@
                         </div>
                         <!--Start Shipping Address-->
                         <!--End Shipping Address-->
+<<<<<<< HEAD
                     </div>
                     <!--End Cash Billing-->
 
@@ -220,4 +237,73 @@
 
     </div>
     <!--End Content-->
+=======
+                    </div>
+                    <!--End Cash Billing-->
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    <!--End Rooms-->
+
+    </div>
+    <!--End Content-->
+=======
+        <div class="wave"></div>
+        <div class="reserved mar-b">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-sm-12 commontop text-center">
+                        <h4>Room Reservation</h4>
+                        <hr>
+                        <p>Anda dapat memesan pemandian dengan mudah melalui booking online atau melalui tim pelayanan
+                            kami yang ramah.</p>
+                    </div><br>
+                    <div class="blog-area full-blog blog-standard full-blog grid-colum default-padding col-md-12">
+                        <div class="justify-content-end">
+                            <button type="button" class="cool-button"
+                                onclick="location.href='{{ route('web.pemandian') }}';">Reservation</button>
+                                
+                            <button type="button" class="cool-button"
+                                onclick="location.href='{{ route('web.pemandian.pdf') }}';">Ekspor PDF</button>
+                        </div>
+                        <br>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Pemandian</th>
+                            <th>Date </th>
+                            <th>Time</th>
+                            <th>Person</th>
+                            <th>Booking Status</th>
+                        </tr>
+                        @foreach ($booking as $item)
+                            @if (Auth::user()->id == $item->user_id)
+                                <tr>
+                                    <th>{{ $item->id }}</th>
+                                    <th>{{ $item->username }}</th>
+                                    <th>{{ $item->toilet->title }}</th>
+                                    <th>{{ $item->book_date }}</th>
+                                    <th>{{ $item->book_time }}</th>
+                                    <th>{{ $item->person }}</th>
+                                    <th>{{ $item->status }}</th>
+                                </tr>
+                            @endif
+                        @endforeach
+                    </table>
+                </div>{{-- <div class="text-center">
+                    {{ $toilet->links('theme.web.custom') }}
+                </div> --}}
+            </div>
+        </div>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
 </x-web-layout>

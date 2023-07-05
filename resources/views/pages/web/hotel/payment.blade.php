@@ -64,8 +64,17 @@
                                     <h5>Thank you! Your Order is Completed!</h5>
                                     <p class="text-muted">You will receive an order confirmation notification with
                                         details of your order.</p>
+<<<<<<< HEAD
                                     <a href="{{ route('web.penginapan.pdf', $order->id) }}"
                                         class="btn btn-sm btn-primary me-2 fs-6" target="_blank"
+=======
+<<<<<<< HEAD
+                                    <a href="{{ route('web.penginapan.pdf', $order->id) }}"
+                                        class="btn btn-sm btn-primary me-2 fs-6" target="_blank"
+=======
+                                    <a href="#" class="btn btn-sm btn-primary me-2 fs-6" target="_blank"
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                         class="menu-link px-3">Cetak Struk</a>
                                 </div>
                             </div>

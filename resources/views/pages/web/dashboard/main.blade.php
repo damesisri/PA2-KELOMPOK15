@@ -132,7 +132,15 @@
                         data-splitout="none" data-elementdelay="0.05" data-endelementdelay="0.1"
                         style="z-index: 9; max-width: auto; max-height: auto; white-space: nowrap;">
                     </div>
+<<<<<<< HEAD
                 </li>v
+=======
+<<<<<<< HEAD
+                </li>v
+=======
+                </li>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
             </ul>
             <div class="tp-bannertimer"></div>
         </div>
@@ -553,6 +561,10 @@
                                             <a href="#book-table" class="read-more"
                                                 style=" line-height: initial; color: #fff;  border:solid 2px #fff; text-transform: uppercase; font-weight: 500; letter-spacing: 0px; padding: 16px 36px; display: inline-block; font-size: 18px;"></a>
                                         </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                     </div>
 
 
@@ -612,6 +624,14 @@
                             <div class="tp-bannertimer"></div>
                         </div>
                         <div class="wave"></div>
+<<<<<<< HEAD
+=======
+=======
+                                </div>
+                            </div>
+                        @endforeach
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                     </div>
 
 
@@ -623,5 +643,6 @@
         <!--End Services-->
     </div>
     <!--End Content-->
+    </div>
 
 </x-web-layout>

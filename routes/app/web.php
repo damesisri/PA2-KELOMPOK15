@@ -28,9 +28,16 @@ Route::group(['domain' => ''], function () {
         Route::post('penginapan/storeReservation', [PenginapanController::class, 'storeReservation'])->name('penginapan.storeReservation');
         Route::put('penginapan/{id}', [PenginapanController::class, 'update'])->name('penginapan.update');
         Route::post('penginapan/payment', [PenginapanController::class, 'updatePayment'])->name('penginapan.payment');
+<<<<<<< HEAD
         Route::get('penginapan/{penginapan}/pdf', [PenginapanController::class, 'pdf'])->name('penginapan.pdf');
         Route::get('penginapan/history', [PenginapanController::class, 'history'])->name('penginapan.history');
 
+=======
+<<<<<<< HEAD
+        Route::get('penginapan/pdf', [PenginapanController::class, 'pdf'])->name('penginapan.pdf');
+=======
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
 
 
         Route::post('penginapan/{id}/store', [PenginapanController::class, 'store'])->name('penginapan.store')->middleware('auth');
@@ -46,6 +53,10 @@ Route::group(['domain' => ''], function () {
 
         Route::get('pemandian', [PemandianController::class, 'index'])->name('pemandian');
         Route::get('pemandian/{id}/detail', [PemandianController::class, 'detail'])->name('booking.detail');
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
         Route::post('pemandian/book', [PemandianController::class, 'book'])->name('pemandian.book');
         Route::get('pemandian/{id}/create', [PemandianController::class, 'create'])->name('pemandian.create');
         Route::get('pemandian/history', [PemandianController::class, 'history'])->name('pemandian.history');
@@ -53,10 +64,22 @@ Route::group(['domain' => ''], function () {
         Route::put('pemandian/{id}', [PemandianController::class, 'update'])->name('pemandian.update');
         Route::post('pemandian/payment', [PemandianController::class, 'updatePayment'])->name('pemandian.payment');
         Route::get('pemandian/pdf', [PemandianController::class, 'pdf'])->name('pemandian.pdf');
+<<<<<<< HEAD
         Route::post('pemandian/check', [PemandianController::class, 'check'])->name('pemandian.check');
 
 
 
+=======
+
+        Route::post('pemandian/check', [PemandianController::class, 'check'])->name('pemandian.check');
+
+=======
+        Route::post('pemandian/{id}/book', [PemandianController::class, 'makeBooking'])->name('pemandian.book');
+        Route::get('pemandian/create', [PemandianController::class, 'create'])->name('pemandian.create');
+        Route::get('pemandian/pdf', [PemandianController::class, 'pdf'])->name('pemandian.pdf');
+
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
 
         Route::get('kritik-saran', [KritikSaranController::class, 'index'])->name('kritik');
         Route::post('kritik-saran/store', [KritikSaranController::class, 'store'])->name('kritik.store');

@@ -1,4 +1,8 @@
 <x-web-layout title="Booking">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
     <style>
         .cool-button {
             background-color: #E9B947;
@@ -28,6 +32,11 @@
             /* Warna latar belakang saat dihover */
         }
     </style>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
     <!--Start Sub Banner-->
     <div class="sub-banner">
         <div class="container">
@@ -108,6 +117,13 @@
                             <input type="hidden" name="checkin" value="{{ $checkin }}">
                             <input type="hidden" name="checkout" value="{{ $checkout }}">
                             <input type="hidden" name="adults" value="{{ $adults }}">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                            <input type="hidden" name="children" value="{{ $children }}">
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                             <input type="hidden" name="price" value="{{ $price }}">
 
                             @csrf
@@ -118,7 +134,16 @@
                                     <ul>
                                         <li><span><strong>Check In:</strong> {{ $checkin }}</span></li>
                                         <li><span><strong>Check Out:</strong> {{ $checkout }}</span></li>
+<<<<<<< HEAD
                                         <li><span><strong>Guests:</strong>{{ $adults }} Orang </span></li>
+=======
+<<<<<<< HEAD
+                                        <li><span><strong>Guests:</strong>{{ $adults }} Orang </span></li>
+=======
+                                        <li><span><strong>Guests:</strong>{{ $adults }} Adult,
+                                                {{ $children }} Children</span></li>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                         <li><span><strong>Rooms:</strong> Kamar {{ $hotelId }}</span></li>
                                     </ul>
 
@@ -126,10 +151,21 @@
                                         <span class="sub-title">Total Price</span>
                                         <span class="price">Rp. {{ number_format($price) }}</span>
                                     </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                     <br> <br>
                                     <center>
                                         <button type="submit" class="cool-button">Buat Pesanan</button>
                                     </center>
+<<<<<<< HEAD
+=======
+=======
+
+                                    <button type="submit" class="btn btn-primary">Buat Pesanan</button>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
 
                                 </div>
 
@@ -147,10 +183,22 @@
                                         <div class="col-md-6">
                                             <div class="field">
                                                 <label>Nama Lengkap <span></span></label>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                                 <input name="fullname" type="text"
                                                     value="{{ Auth::user()->fullname }}">
                                             </div>
 
+<<<<<<< HEAD
+=======
+=======
+                                                <input name="fullname" type="text" value="{{ Auth::user()->name }}">
+                                            </div>
+                                            
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                         </div>
 
                                         <div class="col-md-6">
@@ -159,14 +207,30 @@
                                                 <input name="email" type="text" value="{{ Auth::user()->email }}">
                                             </div>
                                         </div>
+<<<<<<< HEAD
 {{-- 
+=======
+<<<<<<< HEAD
+{{-- 
+=======
+
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                         <div class="col-md-6">
                                             <div class="field">
                                                 <label>Alamat <span></span></label>
                                                 <input name="address" type="text"
                                                     value="{{ Auth::user()->address }}">
                                             </div>
+<<<<<<< HEAD
                                         </div> --}}
+=======
+<<<<<<< HEAD
+                                        </div> --}}
+=======
+                                        </div>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
 
                                         <div class="col-md-6">
                                             <div class="field">

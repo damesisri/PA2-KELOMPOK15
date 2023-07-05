@@ -25,6 +25,10 @@
                             <td>{{ $item->checkout_date }}</td>
                             <td>Rp. {{ number_format($item->total_price) }}</td>
                             <td>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                 @if ($item->payment_proof != 'Cash')
                                     <img src="{{ asset('images/bukti_pembayaran/' . $item->payment_proof) }}"
                                         class="card-img-top">
@@ -33,6 +37,11 @@
                                 @endif
                             </td>
                             <td>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                 @if ($item->status == 'pending')
                                     <span class="badge badge-soft-warning text-uppercase">Menunggu</span>
                                 @elseif($item->status == 'accepted')
@@ -44,11 +53,33 @@
                                 @endif
                             </td>
                             <td>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                 <div class="btn-group d-flex justify-content-center" role="group"
                                     aria-label="Basic example">
                                     <a href="javascript:;"
                                         onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','DELETE','{{ route('operator.hotel.destroy', $item->id) }}');"
                                         class="btn btn-sm btn-primary"></i>Delete</a>
+<<<<<<< HEAD
+=======
+=======
+                                @if ($item->payment_proof != 'Cash')
+                                    <img src="{{ asset('images/bukti_pembayaran/' . $item->payment_proof) }}"
+                                        class="card-img-top">
+                                @else
+                                    Pembayaran Cash
+                                @endif
+                            </td>
+                            <td>
+                                <div class="btn-group d-flex justify-content-center" role="group"
+                                    aria-label="Basic example">
+                                    <a href="javascript:;"
+                                        onclick="load_detail('{{ route('operator.hotel.show', $item->id) }}')"
+                                        class="btn btn-sm btn-primary">Detail</a>
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                     @if ($item->status == 'accepted')
                                         <a href="javascript:;"
                                             onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PUT','{{ route('operator.hotel.finish', $item->id) }}');"

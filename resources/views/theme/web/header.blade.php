@@ -3,9 +3,27 @@
     <header class="header-two">
         <div class="container">
             <a href="index-2.html">
+<<<<<<< HEAD
                 <img class="logo2" src="{{ asset('assets/images/logob.png') }}" alt="" width="200"
                     height="100"></a>
             <a href="index-2.html"><img class="logo-dark" src="{{ asset('assets/images/logoa.png') }}" alt=""
+=======
+<<<<<<< HEAD
+                <img class="logo2" src="{{ asset('assets/images/logob.png') }}" alt="" width="200"
+                    height="100"></a>
+            <a href="index-2.html"><img class="logo-dark" src="{{ asset('assets/images/logoa.png') }}" alt=""
+=======
+<<<<<<< HEAD
+                <img class="logo2" src="{{ asset('assets/images/logob.png') }}" alt="" width="200"
+                    height="100"></a>
+            <a href="index-2.html"><img class="logo-dark" src="{{ asset('assets/images/logoa.png') }}" alt=""
+=======
+                <img class="logo2" src="{{ asset('assets/images/ks/logobg.png') }}" alt="" width="150"
+                    height="100"></a>
+            <a href="index-2.html"><img class="logo-dark" src="{{ asset('assets/images/ks/logobg.png') }}" alt=""
+>>>>>>> 955b0efd52524aec77190dc6219047f82b423eb5
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                     width="150" height="70"></a>
 
             <div class="cont-right">
@@ -88,6 +106,10 @@
                             </a>
                             <ul class="submenu">
                                 @auth
+<<<<<<< HEAD
+=======
+                                    <li><a href="{{ route('web.pemandian.history') }}">History</a></li>
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
                                     <li><a href="{{ route('web.logout') }}">Logout</a></li>
                                 @else
                                     <li><a href="{{ route('auth.index') }}">Login</a></li>

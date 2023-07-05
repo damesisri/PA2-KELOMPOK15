@@ -40,8 +40,18 @@ class OrderController extends Controller
     public function pdf()
     {
         $now = Carbon::now()->translatedFormat('l, d F Y');
+<<<<<<< HEAD
         $pemesanans = Pemesanan::orderBy('created_at', 'DESC')->get();
         $pdf = PDF::loadView('pages.admin.orders.pdf', ['pemesanans' => $pemesanans]);
+=======
+<<<<<<< HEAD
+        $pemesanans = Pemesanan::orderBy('created_at', 'DESC')->get();
+        $pdf = PDF::loadView('pages.admin.orders.pdf', ['pemesanans' => $pemesanans]);
+=======
+        $orders = Order::orderBy('created_at', 'DESC')->get();
+        $pdf = PDF::loadView('pages.admin.orders.pdf', ['orders' => $orders]);
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
         // return $pdf->stream();
         return $pdf->download($now . '.pdf');
     }

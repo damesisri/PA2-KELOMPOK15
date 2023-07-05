@@ -24,6 +24,7 @@ Route::prefix('operator/')->name('operator.')->group(function () {
 
 
         Route::get('hotel', [HotelController::class, 'index'])->name('hotel.index');
+<<<<<<< HEAD
         Route::post('hotel/makePenginapan', [HotelController::class, 'makePenginapan'])->name('hotel.makePenginapan');
         Route::get('hotel/pdf', [HotelController::class, 'pdf'])->name('hotel.pdf');
         Route::get('hotel/{hotel}', [HotelController::class, 'show'])->name('hotel.show');
@@ -31,6 +32,24 @@ Route::prefix('operator/')->name('operator.')->group(function () {
         Route::patch('hotel/reject/{penginapan}', [HotelController::class, 'reject'])->name('hotel.reject');
         Route::put('hotel/finish/{penginapan}', [HotelController::class, 'finish'])->name('hotel.finish');
         Route::delete('hotel/destroy/{penginapan}', [HotelController::class, 'destroy'])->name('hotel.destroy');
+=======
+<<<<<<< HEAD
+        Route::post('hotel/makePenginapan', [HotelController::class, 'makePenginapan'])->name('hotel.makePenginapan');
+        Route::get('hotel/pdf', [HotelController::class, 'pdf'])->name('hotel.pdf');
+        Route::get('hotel/{hotel}', [HotelController::class, 'show'])->name('hotel.show');
+        Route::patch('hotel/accept/{penginapan}', [HotelController::class, 'accept'])->name('hotel.accept');
+        Route::patch('hotel/reject/{penginapan}', [HotelController::class, 'reject'])->name('hotel.reject');
+        Route::put('hotel/finish/{penginapan}', [HotelController::class, 'finish'])->name('hotel.finish');
+        Route::delete('hotel/destroy/{hotel}', [HotelController::class, 'destroy'])->name('hotel.destroy');
+=======
+        Route::post('hotel/makeReservation', [OrderController::class, 'makeOrder'])->name('hotel.makeReservation');
+        Route::get('hotel/pdf', [HotelController::class, 'pdf'])->name('hotel.pdf');
+        Route::get('hotel/{hotel}', [HotelController::class, 'show'])->name('hotel.show');
+        Route::patch('hotel/accept/{hotel}', [HotelController::class, 'accept'])->name('hotel.accept');
+        Route::patch('hotel/reject/{hotel}', [HotelController::class, 'reject'])->name('hotel.reject');
+        Route::put('hotel/finish/{hotel}', [HotelController::class, 'finish'])->name('hotel.finish');
+>>>>>>> 169a733c3bafb102e7687ae7493f73dbb6a9aa7b
+>>>>>>> 14cadffa2dd7df46a4cd473ab87107b2103daf20
 
         Route::get('order', [OrderController::class, 'index'])->name('order.index');
         Route::post('order/makeOrder', [OrderController::class, 'makeOrder'])->name('order.makeOrder');
