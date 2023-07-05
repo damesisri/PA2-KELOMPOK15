@@ -10,20 +10,30 @@
                         <th>Tanggal</th>
                         <th>Jam</th>
                         <th>Jumlah</th>
+                        <th>Total Price</th>
                         <th>Status</th>
+                        <th>Payment Proof</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($booking as $item)
+                    @foreach ($pemandian as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->toilet->title }}</td>
-                            {{-- <td>{{$item->category}}</td> --}}
-                            <td>{{ $item->username }}</td>
+                            <td>{{ $item->user->fullname }}</td>
                             <td>{{ $item->book_date }}</td>
                             <td>{{ $item->book_time }}</td>
                             <td>{{ $item->person }}</td>
+                            <td>Rp. {{ number_format($item->total_price) }}</td>
+                            <td>
+                                @if ($item->payment_proof != 'Cash')
+                                    <img src="{{ asset('images/bukti_pembayaran/' . $item->payment_proof) }}"
+                                        class="card-img-top">
+                                @else
+                                    Pembayaran Cash
+                                @endif
+                            </td>
                             <td>
                                 @if ($item->status == 'pending')
                                     <span class="badge badge-soft-warning text-uppercase">Menunggu</span>
@@ -39,21 +49,21 @@
                                 <div class="btn-group d-flex justify-content-center" role="group"
                                     aria-label="Basic example">
                                     <a href="javascript:;"
-                                        onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','DELETE','{{ route('operator.booking.destroy', $item->id) }}');"
+                                        onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','DELETE','{{ route('operator.pemandian.destroy', $item->id) }}');"
                                         class="btn btn-sm btn-primary"></i>Delete</a>
                                     @if ($item->status == 'accepted')
                                         <a href="javascript:;"
-                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PUT','{{ route('operator.booking.finish', $item->id) }}');"
+                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PUT','{{ route('operator.pemandian.finish', $item->id) }}');"
                                             class="btn btn-sm btn-danger"></i>Finish</a>
                                     @endif
                                     @if ($item->status == 'pending')
                                         <a href="javascript:;"
-                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PATCH','{{ route('operator.booking.accept', $item->id) }}');"
+                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PATCH','{{ route('operator.pemandian.accept', $item->id) }}');"
                                             class="btn btn-sm btn-success">
                                             Terima
                                         </a>
                                         <a href="javascript:;"
-                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PATCH','{{ route('operator.booking.reject', $item->id) }}');"
+                                            onclick="handle_confirm('Apakah Anda Yakin?','Yakin','Tidak','PATCH','{{ route('operator.pemandian.reject', $item->id) }}');"
                                             class="btn btn-sm btn-danger">
                                             Tolak
                                         </a>
@@ -67,4 +77,4 @@
         </div>
     </div>
 </div>
-{{ $booking->links('theme.app.pagination') }}
+{{ $pemandian->links('theme.app.pagination') }}

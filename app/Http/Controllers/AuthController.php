@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Password;
 
 class AuthController extends Controller
 {
@@ -22,6 +23,11 @@ class AuthController extends Controller
     public function register()
     {
         return view('pages.auth.register');
+    }
+
+    public function forgot()
+    {
+        return view('pages.auth.forgot');
     }
     public function do_login(Request $request)
     {
@@ -119,5 +125,57 @@ class AuthController extends Controller
         $user = Auth::user();
         Auth::logout($user);
         return redirect('dashboard')->with('success', 'Berhasil Logout');
+    }
+
+    public function do_forgot(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Email ditemukan. Silakan atur password baru.',
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Email tidak terdaftar.',
+            ]);
+        }
+    }
+
+    public function reset_password(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required|same:password',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user) {
+            $user->password = Hash::make($request->password);
+            $user->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Password berhasil direset.',
+                'redirect' => route('auth.index'),
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Terjadi kesalahan. Silakan coba lagi.',
+            ]);
+        }
+    }
+
+    protected function broker()
+    {
+        return Password::broker();
     }
 }

@@ -3,9 +3,10 @@
     <header class="header-two">
         <div class="container">
             <a href="index-2.html">
-                <img class="logo2" src="{{ asset('assets-user/images/logo-dark.png') }}" alt=""></a>
-            <a href="index-2.html"><img class="logo-dark" src="{{ asset('assets-user/images/logo-dark.png') }}"
-                    alt=""></a>
+                <img class="logo2" src="{{ asset('assets/images/logob.png') }}" alt="" width="200"
+                    height="100"></a>
+            <a href="index-2.html"><img class="logo-dark" src="{{ asset('assets/images/logoa.png') }}" alt=""
+                    width="150" height="70"></a>
 
             <div class="cont-right">
 
@@ -18,22 +19,32 @@
                             </ul> --}}
                         </li>
 
-                        <li><a href="{{ route('web.food') }}">Menu</a></li>
+                        <li class="parent"><a>Menu</a>
+                            <ul class="submenu">
+                                <li><a href="{{ route('web.food') }}">Menu</a>
+                                <li><a href="{{ route('web.checkout.history') }}">History</a>
+                                </li>
+                            </ul>
+                        </li>
 
 
-                        {{-- <li><a href="our-story.html">our story</a></li> --}}
 
 
-                        <li class="parent"><a href="{{ route('web.penginapan') }}">Hotel</a>
+                        <li class="parent"><a>Hotel</a>
 
-                            {{-- <ul class="submenu">
-                                <li><a href="blog.html">blog 1</a></li>
-                                <li><a href="blog2.html">blog 2</a></li>
-                            </ul> --}}
+                            <ul class="submenu">
+                                <li><a href="{{ route('web.penginapan') }}">Hotel</a>
+                                <li><a href="{{ route('web.penginapan.history') }}">History</a>
+                                </li>
+                            </ul>
 
                         </li>
 
-                        <li><a href="{{ route('web.pemandian') }}">Pemandian</a>
+                        <li class="parent"><a>Pemandian</a>
+                            <ul class="submenu">
+                                <li><a href="{{ route('web.pemandian') }}">Pemandian</a></li>
+                                <li><a href="{{ route('web.pemandian.history') }}">History</a></li>
+                            </ul>
                         </li>
                         <li><a href="{{ route('web.kritik') }}">contact us</a>
                         </li>
@@ -77,7 +88,6 @@
                             </a>
                             <ul class="submenu">
                                 @auth
-                                    <li><a href="{{ route('web.pemandian.create') }}">History</a></li>
                                     <li><a href="{{ route('web.logout') }}">Logout</a></li>
                                 @else
                                     <li><a href="{{ route('auth.index') }}">Login</a></li>

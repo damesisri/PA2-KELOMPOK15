@@ -20,7 +20,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex align-items-center">
-                    <h5 class="card-title flex-grow-1 mb-0">Order {{ $order->code }}</h5>
+                    <h5 class="card-title flex-grow-1 mb-0">Order {{ $pemesanan->code }}</h5>
 
                 </div>
             </div>
@@ -36,7 +36,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($order->orderDetails as $item)
+                            @foreach ($pemesanan->pemesananDetails as $item)
                                 <tr>
                                     <td>
                                         <div class="d-flex">
@@ -63,7 +63,7 @@
                                         <tbody>
                                             <tr class="border-top border-top-dashed">
                                                 <th scope="row">Total (IDR) :</th>
-                                                <th class="text-end">Rp. {{ number_format($order->total) }}</th>
+                                                <th class="text-end">Rp. {{ number_format($pemesanan->total) }}</th>
                                             </tr>
                                         </tbody>
                                     </table>

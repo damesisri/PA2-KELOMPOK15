@@ -1,4 +1,4 @@
-<x-app-layout title="Hotel">
+<x-app-layout title="Pemandian">
     <div class="page-body">
         <!-- Container-fluid starts-->
         <div class="container-fluid">

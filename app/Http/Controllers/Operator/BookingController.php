@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Operator;
 
 use PDF;
-use App\Models\Booking;
-use App\Models\Toilet;
 use Carbon\Carbon;
+use App\Models\Toilet;
+use App\Models\Pemandian;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 
 class BookingController extends Controller
@@ -16,8 +17,15 @@ class BookingController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $booking = Booking::paginate(10);
-            return view('pages.operator.booking.list', compact('booking'));
+            $pemandian = Pemandian::where('user_id', 'like', '%' . $request->keyword . '%')
+                ->orWhere('toilet_id', 'like', '%' . $request->keyword . '%')
+                // ->orWhere('username', 'like', '%' . $request->keyword . '%')
+                ->orWhere('book_date', 'like', '%' . $request->keyword . '%')
+                ->orWhere('book_time', 'like', '%' . $request->keyword . '%')
+                ->orWhere('person', 'like', '%' . $request->keyword . '%')
+                ->orWhere('status', 'like', '%' . $request->keyword . '%')
+                ->latest()->paginate(10);
+            return view('pages.operator.booking.list', compact('pemandian'));
         }
         return view('pages.operator.booking.main');
     }
@@ -34,10 +42,10 @@ class BookingController extends Controller
     //     return view('pages.admin.booking.show', compact('booking'));
     // }
 
-    public function accept(Booking $booking)
+    public function accept(Pemandian $pemandian)
     {
-        $booking->status = 'accepted';
-        $booking->save();
+        $pemandian->status = 'accepted';
+        $pemandian->save();
 
         return response()->json([
             'alert' => 'success',
@@ -45,10 +53,10 @@ class BookingController extends Controller
         ]);
     }
 
-    public function reject(Booking $booking)
+    public function reject(Pemandian $pemandian)
     {
-        $booking->status = 'rejected';
-        $booking->save();
+        $pemandian->status = 'rejected';
+        $pemandian->save();
 
         return response()->json([
             'alert' => 'success',
@@ -56,9 +64,9 @@ class BookingController extends Controller
         ]);
     }
 
-    public function destroy(Booking $booking)
+    public function destroy(Pemandian $pemandian)
     {
-        $booking->delete();
+        $pemandian->delete();
         return response()->json([
             'alert' => 'success',
             'message' => 'Pesanan berhasil dihapus',
@@ -66,24 +74,33 @@ class BookingController extends Controller
     }
     public function makeBooking(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'toilet_id' => 'required',
             'book_date' => 'required',
             'book_time' => 'required',
             'person' => 'required',
         ]);
 
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $validator->errors()->first(),
+            ]);
+        }
+
         $toilet = Toilet::find($request->toilet_id);
 
-        $booking = new Booking();
-        $booking->toilet_id = $toilet->id;
-        $booking->user_id = Auth::user()->id;
-        $booking->username = Auth::user()->name;
-        $booking->book_date = $request->book_date;
-        $booking->book_time = $request->book_time;
-        $booking->person = $request->person;
-        $booking->status = 'pending';
-        $booking->save();
+        $pemandian = new Pemandian();
+        $pemandian->toilet_id = $toilet->id;
+        $pemandian->user_id = Auth::user()->id;
+        $pemandian->book_date = $request->book_date;
+        $pemandian->book_time = $request->book_time;
+        $pemandian->person = $request->person;
+        $pemandian->status = 'pending';
+        $pemandian->total_price = $toilet->price * $request->person;
+        $pemandian->payment_proof = 'Cash';
+        $pemandian->save();
 
         return response()->json([
             'alert' => 'success',
@@ -92,10 +109,10 @@ class BookingController extends Controller
         ]);
     }
 
-    public function finish(Booking $booking)
+    public function finish(Pemandian $pemandian)
     {
-        $booking->status = 'Completed';
-        $booking->save();
+        $pemandian->status = 'Completed';
+        $pemandian->save();
 
         return response()->json([
             'alert' => 'success',
@@ -103,12 +120,11 @@ class BookingController extends Controller
         ]);
     }
 
-    public function pdf()
+    public function PDF()
     {
-        $now = Carbon::now()->translatedFormat('l, d F Y');
-        $booking = Booking::orderBy('created_at', 'DESC')->get();
-        $pdf = PDF::loadView('pages.operator.booking.pdf', ['orders' => $booking]);
-        // return $pdf->stream();
-        return $pdf->download($now . '.pdf');
+        $pemandian = Pemandian::all();
+        $pdf = PDF::loadview('pages.operator.booking.pdf', compact('pemandian'));
+
+        return $pdf->download('laporan-booking.pdf');
     }
 }

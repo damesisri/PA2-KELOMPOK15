@@ -76,7 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-sm-6">
+                            {{-- <div class="col-lg-6 col-sm-6">
                                 <div class="p-2 border border-dashed rounded">
                                     <div class="d-flex align-items-center">
                                         <div class="avatar-sm me-2">
@@ -90,7 +90,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
 
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="hstack gap-2 justify-content-end">
-                    <a class="btn btn-light" href="javascript:;" onclick="load_list(1);">Kembali</a>
+                    <a class="btn btn-light" href="{{ route('admin.order.index') }}">Kembali</a>
                 </div>
             </div>
         </div>

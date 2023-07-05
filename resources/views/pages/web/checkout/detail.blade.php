@@ -68,8 +68,8 @@
                                         details of your order.</p>
 
                                     <h3 class="fw-semibold pb-2">Order ID: <a href="javascript:;"
-                                            class="text-decoration-underline">{{ $order->code }}</a></h3><br>
-                                    <a href="{{ route('web.checkout.pdf', $order->id) }}"
+                                            class="text-decoration-underline">{{ $pemesanan->code }}</a></h3><br>
+                                    <a href="{{ route('web.checkout.pdf', $pemesanan->id) }}"
                                         class="btn btn-sm btn-primary me-2 fs-6  " target="_blank"
                                         class="menu-link px-3">Cetak Struk</a>
                                 </div>

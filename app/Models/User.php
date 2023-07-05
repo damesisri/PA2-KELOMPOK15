@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Cart;
 use App\Models\City;
-use App\Models\Order;
+use App\Models\Pemesanan;
 use App\Models\Province;
 use App\Models\Subdistrict;
 use Laravel\Sanctum\HasApiTokens;
@@ -32,14 +32,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function bookings()
+    public function pemandians()
     {
-        return $this->hasMany(Booking::class);
+        return $this->hasMany(Pemandian::class);
     }
 
-    public function orders()
+    public function pemesanans()
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Pemesanan::class);
+    }
+
+    public function penginapans()
+    {
+        return $this->hasMany(Penginapan::class);
     }
 
     public function cart()

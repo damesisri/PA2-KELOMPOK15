@@ -16,7 +16,7 @@
 
         }
     </style>
-    @if ($order->payment != 'Cash')
+    @if ($pemesanan->payment != 'Cash')
         <center>
             <h2>Transaksi Non Tunai</h2>
             <h4>Karunia Sipoholon</h4>
@@ -28,13 +28,13 @@
         <div class="p-5 mx-5">
 
             <div class="" style="text-align: left; line-height: 0.5;">
-                <p>Nama : {{ $order->user->fullname }}</p>
-                <p>Hari/Tanggal : {{ $order->created_at->translatedFormat('l, d-m-Y') }}</p>
-                <p>ID : {{ $order->code }}</p>
+                <p>Nama : {{ $pemesanan->user->fullname }}</p>
+                <p>Hari/Tanggal : {{ $pemesanan->created_at->translatedFormat('l, d-m-Y') }}</p>
+                <p>ID : {{ $pemesanan->code }}</p>
             </div><br>
             <table class=" col-12">
                 <tbody>
-                    @foreach ($order->orderDetails as $item)
+                    @foreach ($pemesanan->pemesananDetails as $item)
                         <tr>
                             <td class="text-end" style="width: 50%">{{ $item->product->title }}
                             </td>
@@ -52,12 +52,12 @@
                     <tr>
                         <td style="width:50%;">SubTotal</td>
                         <td style="width: 20%"></td>
-                        <td>Rp. {{ number_format($order->total, 2, '.', ',') }}</td>
+                        <td>Rp. {{ number_format($pemesanan->total, 2, '.', ',') }}</td>
                     </tr>
                     <tr>
                         <td style="width:50%;">Total</td>
                         <td style="width: 20%"></td>
-                        <td>Rp. {{ number_format($order->total, 2, '.', ',') }}</td>
+                        <td>Rp. {{ number_format($pemesanan->total, 2, '.', ',') }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -67,12 +67,12 @@
                     <tr>
                         <td style="width:50%;" class="text-nowrap">Metode Pembayaran</td>
                         <td>:</td>
-                        <td>{{ $item->order->payment }}</td>
+                        <td>{{ $pemesanan->payment }}</td>
                     </tr>
                     <tr>
                         <td style="padding-right: 35px" class="text-nowrap">Status</td>
                         <td>:</td>
-                        <td>Lunas</td>
+                        <td>{{ $pemesanan->status }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -90,13 +90,13 @@
         <div class="p-5 mx-5">
 
             <div class="" style="text-align: left; line-height: 0.5;">
-                <p>{{ $order->user->fullname }}</p>
-                <p>{{ $order->created_at->translatedFormat('l, d-m-Y') }}</p>
-                <p>ID : {{ $order->code }}</p>
+                <p>{{ $pemesanan->user->fullname }}</p>
+                <p>{{ $pemesanan->created_at->translatedFormat('l, d-m-Y') }}</p>
+                <p>ID : {{ $pemesanan->code }}</p>
             </div><br>
             <table class=" col-12">
                 <tbody>
-                    @foreach ($order->orderDetails as $item)
+                    @foreach ($pemesanan->pemesananDetails as $item)
                         <tr>
                             <td class="text-end" style="width: 50%">{{ $item->product->title }}
                             </td>
@@ -114,18 +114,12 @@
                     <tr>
                         <td style="width:50%;">SubTotal</td>
                         <td style="width: 20%"></td>
-                        <td>Rp. {{ number_format($order->total, 2, '.', ',') }}</td>
-                    </tr>
-
-                    <tr>
-                        <td style="width: 50%">Diskon</td>
-                        <td style="width: 20%"></td>
-                        <td class="">- Rp.0</td>
+                        <td>Rp. {{ number_format($pemesanan->total, 2, '.', ',') }}</td>
                     </tr>
                     <tr>
                         <td style="width:50%;">Total</td>
                         <td style="width: 20%"></td>
-                        <td>Rp. {{ number_format($order->total, 2, '.', ',') }}</td>
+                        <td>Rp. {{ number_format($pemesanan->total, 2, '.', ',') }}</td>
                     </tr>
 
 
@@ -137,12 +131,12 @@
                     <tr>
                         <td style="width:50%;" class="text-nowrap">Metode Pembayaran</td>
                         <td>:</td>
-                        <td>{{ $item->order->payment }}</td>
+                        <td>{{ $pemesanan->payment }}</td>
                     </tr>
                     <tr>
                         <td style="padding-right: 35px" class="text-nowrap">Status</td>
                         <td>:</td>
-                        <td>Lunas</td>
+                        <td>{{ $pemesanan->status }}</td>
                     </tr>
                 </tbody>
             </table>

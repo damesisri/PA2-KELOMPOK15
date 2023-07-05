@@ -8,7 +8,7 @@
                         <th>Menu</th>
                         <th>Kategori</th>
                         <th>Harga</th>
-                        <th>Stok</th>
+                        {{-- <th>Stok</th> --}}
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -19,7 +19,7 @@
                             <td>{{ $item->title }}</td>
                             <td>{{ $item->category }}</td>
                             <td>{{ $item->price }}</td>
-                            <td>{{ $item->stock }}</td>
+                            {{-- <td>{{ $item->stock }}</td> --}}
                             <td>
                                 <ul class="list-inline hstack gap-2 mb-0">
                                     <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover"

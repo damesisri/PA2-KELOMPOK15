@@ -7,13 +7,11 @@ use App\Helpers\Helper;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\User;
-use App\Models\Order;
+use App\Models\Pemesanan;
 use App\Models\Province;
-use App\Models\OrderDetail;
+use App\Models\PemesananDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\City;
-use App\Models\Subdistrict;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -30,9 +28,9 @@ class CheckoutController extends Controller
         $validators = Validator::make($request->all(), [
             'fullname' => 'required',
             'phone' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'postal_code' => 'required'
+            // 'address' => 'required',
+            // 'city' => 'required',
+            // 'postal_code' => 'required'
         ]);
 
         if ($validators->fails()) {
@@ -45,15 +43,22 @@ class CheckoutController extends Controller
         $user = User::find(Auth::user()->id);
         $user->fullname = $request->fullname;
         $user->phone = $request->phone;
-        $user->address = $request->address;
-        $user->city = $request->city;
-        $user->postal_code = $request->postal_code;
+        // $user->address = $request->address;
+        // $user->city = $request->city;
+        // $user->postal_code = $request->postal_code;
         $user->save();
 
         return response()->json([
             'alert' => 'success',
             'message' => 'Data berhasil disimpan',
         ]);
+    }
+
+    public function history()
+    {
+        $pemesanan = Pemesanan::get();
+
+        return view('pages.web.checkout.history', ['pemesanan' => $pemesanan]);
     }
 
     public function payment()
@@ -74,12 +79,12 @@ class CheckoutController extends Controller
             ]);
         }
 
-        $order = Order::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
+        $pemesanan = Pemesanan::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->first();
         $file = $request->file('image');
         $filename = time() . '.' . $file->getClientOriginalExtension();
         $file->move(public_path('images/bukti_pembayaran'), $filename);
-        $order->image = $filename;
-        $order->save();
+        $pemesanan->image = $filename;
+        $pemesanan->save();
 
         return response()->json([
             'alert' => 'success',
@@ -95,42 +100,46 @@ class CheckoutController extends Controller
             $total = $total + ($c->quantity * $c->product->price);
         }
         if ($request->payment != 'Cash') {
-            $order = new Order();
-            $order->code = Helper::IDGenerator();
-            $order->user_id = Auth::user()->id;
-            $order->total = $total;
-            $order->payment = $request->payment;
-            // $order->delivery = $request->shippingMethod;
+            $request->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            $pemesanan = new Pemesanan();
+            $pemesanan->code = Helper::IDGenerator();
+            $pemesanan->user_id = Auth::user()->id;
+            // $pemesanan->pemesanan_id = $request->pemesanan_id;
+            $pemesanan->total = $total;
+            $pemesanan->payment = $request->payment;
+            // $pemesanan->delivery = $request->shippingMethod;
             $file = $request->file('image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/bukti_pembayaran'), $filename);
-            $order->image = $filename;
-            $order->save();
+            $pemesanan->image = $filename;
+            $pemesanan->save();
             $cart = Cart::where('user_id', Auth::user()->id)->get();
             foreach ($cart as $c) {
-                $order_detail = new OrderDetail;
-                $order_detail->order_id = $order->id;
-                $order_detail->product_id = $c->product_id;
-                $order_detail->quantity = $c->quantity;
-                $order_detail->save();
+                $pemesanan_detail = new PemesananDetail;
+                $pemesanan_detail->transaksipemesanan_id = $pemesanan->id;
+                $pemesanan_detail->product_id = $c->product_id;
+                $pemesanan_detail->quantity = $c->quantity;
+                $pemesanan_detail->save();
                 $product = Product::find($c->product_id);
                 $product->stock = $product->stock - $c->quantity;
                 $product->update();
             }
         } else {
-            $order = new Order();
-            $order->code = Helper::IDGenerator();
-            $order->user_id = Auth::user()->id;
-            $order->total = $total;
-            $order->payment = $request->payment;
-            $order->save();
+            $pemesanan = new Pemesanan();
+            $pemesanan->code = Helper::IDGenerator();
+            $pemesanan->user_id = Auth::user()->id;
+            $pemesanan->total = $total;
+            $pemesanan->payment = $request->payment;
+            $pemesanan->save();
             $cart = Cart::where('user_id', Auth::user()->id)->get();
             foreach ($cart as $c) {
-                $order_detail = new OrderDetail;
-                $order_detail->order_id = $order->id;
-                $order_detail->product_id = $c->product_id;
-                $order_detail->quantity = $c->quantity;
-                $order_detail->save();
+                $pemesanan_detail = new PemesananDetail;
+                $pemesanan_detail->transaksipemesanan_id = $pemesanan->id;
+                $pemesanan_detail->product_id = $c->product_id;
+                $pemesanan_detail->quantity = $c->quantity;
+                $pemesanan_detail->save();
                 $product = Product::find($c->product_id);
                 $product->stock = $product->stock - $c->quantity;
                 $product->update();
@@ -138,21 +147,20 @@ class CheckoutController extends Controller
         }
         $notification = new Notification;
         $notification->user_id = 2;
-        $notification->message = 'Anda mendapatkan Pesanan! Kode ' . $order->code;
+        $notification->message = 'Anda mendapatkan Pesanan! Kode ' . $pemesanan->code;
         $notification->type = 'success';
         $notification->save();
         Cart::where('user_id', Auth::user()->id)->delete();
 
-        return view('pages.web.checkout.detail', ['order' => $order]);
+        return view('pages.web.checkout.detail', ['pemesanan' => $pemesanan]);
     }
-    public function pdf(Order $order)
+    public function pdf($id)
     {
-        // $coupons = Coupon::where('id', $order->coupon_id)->get();/
-        $pdf = PDF::loadView('pages.web.checkout.pdf', [
-            'order' => $order,
-            // 'coupons' => $coupons
-        ]);
+        // $pemesanan = Pemesanan::with('user')->get();
+        $pemesanan = Pemesanan::findOrFail($id);
+        $pdf = PDF::loadView('pages.web.checkout.pdf', compact('pemesanan'));
+        // 'coupons' => $coupons
         // return $pdf->stream();
-        return $pdf->download($order->code . ' - ' . $order->created_at->format('d-m-Y') . '.pdf');
+        return $pdf->download($pemesanan->code . ' - ' . $pemesanan->created_at->format('d-m-Y') . '.pdf');
     }
 }

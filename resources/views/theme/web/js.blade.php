@@ -34,6 +34,9 @@
 <!-- Tabs -->
 <script type="text/javascript" src="{{ asset('assets-user/js/tabs.js') }}"></script>
 
+{{-- Jquery --}}
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+
 <script>
     $(".openTabby").openTabby();
 </script>

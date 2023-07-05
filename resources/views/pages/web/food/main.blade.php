@@ -59,8 +59,8 @@
                                 <img src="{{ asset('images/food/' . $item->cover) }}" alt="">
                                 <div class="detail">
                                     <h6>{{ $item->title }}</h6>
-                                    <span>Fresh<span class="dot">.</span> light<span class="dot">.</span>
-                                        Mexican</span>
+                                    {{-- <span>Fresh<span class="dot">.</span> light<span class="dot">.</span>
+                                        Mexican</span> --}}
 
                                     <div class="price-cart">
                                         <a href="#."><span class="price">Rp

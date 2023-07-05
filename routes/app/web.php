@@ -16,24 +16,47 @@ Route::group(['domain' => ''], function () {
     Route::post('auth/login', [AuthController::class, 'do_login'])->name('auth.login');
     Route::get('auth/register', [AuthController::class, 'register'])->name('register');
     Route::post('auth/register', [AuthController::class, 'do_register'])->name('auth.register');
+    Route::get('auth/forgot', [AuthController::class, 'forgot'])->name('forgot');
+    Route::post('auth/forgot', [AuthController::class, 'do_forgot'])->name('auth.forgot');
+    Route::post('auth/reset-password', [AuthController::class, 'reset_password'])->name('auth.reset_password');
 
     Route::prefix('')->name('web.')->group(function () {
         Route::get('penginapan', [PenginapanController::class, 'index'])->name('penginapan');
         Route::get('penginapan/{id}/detail', [PenginapanController::class, 'detail'])->name('penginapan.detail');
         Route::get('penginapan/{id}/create', [PenginapanController::class, 'create'])->name('penginapan.create');
+        Route::post('penginapan/book', [PenginapanController::class, 'book'])->name('penginapan.book');
+        Route::post('penginapan/storeReservation', [PenginapanController::class, 'storeReservation'])->name('penginapan.storeReservation');
+        Route::put('penginapan/{id}', [PenginapanController::class, 'update'])->name('penginapan.update');
+        Route::post('penginapan/payment', [PenginapanController::class, 'updatePayment'])->name('penginapan.payment');
+        Route::get('penginapan/{penginapan}/pdf', [PenginapanController::class, 'pdf'])->name('penginapan.pdf');
+        Route::get('penginapan/history', [PenginapanController::class, 'history'])->name('penginapan.history');
+
+
+
         Route::post('penginapan/{id}/store', [PenginapanController::class, 'store'])->name('penginapan.store')->middleware('auth');
         // Route::get('penginapan/booking', [PenginapanController::class, 'booking'])->name('penginapan.booking');
+        Route::post('penginapan/check', [PenginapanController::class, 'check'])->name('penginapan.check');
 
         Route::get('food', [FoodController::class, 'index'])->name('food');
         Route::get('food/{food}', [FoodController::class, 'detail'])->name('food.detail');
         // Route::get('check', [PenginapanController::class, 'check'])->name('check');
+        Route::get('checkout/history', [CheckoutController::class, 'history'])->name('checkout.history');
+
 
 
         Route::get('pemandian', [PemandianController::class, 'index'])->name('pemandian');
-        Route::post('pemandian/{toilet}/store', [PemandianController::class, 'store'])->name('pemandian.store')->middleware('auth');
         Route::get('pemandian/{id}/detail', [PemandianController::class, 'detail'])->name('booking.detail');
-        Route::post('pemandian/{id}/book', [PemandianController::class, 'makeBooking'])->name('pemandian.book');
-        Route::get('pemandian/create', [PemandianController::class, 'create'])->name('pemandian.create');
+        Route::post('pemandian/book', [PemandianController::class, 'book'])->name('pemandian.book');
+        Route::get('pemandian/{id}/create', [PemandianController::class, 'create'])->name('pemandian.create');
+        Route::get('pemandian/history', [PemandianController::class, 'history'])->name('pemandian.history');
+        Route::post('pemandian/storeReservation', [PemandianController::class, 'storeReservation'])->name('pemandian.storeReservation');
+        Route::put('pemandian/{id}', [PemandianController::class, 'update'])->name('pemandian.update');
+        Route::post('pemandian/payment', [PemandianController::class, 'updatePayment'])->name('pemandian.payment');
+        Route::get('pemandian/pdf', [PemandianController::class, 'pdf'])->name('pemandian.pdf');
+        Route::post('pemandian/check', [PemandianController::class, 'check'])->name('pemandian.check');
+
+
+
 
         Route::get('kritik-saran', [KritikSaranController::class, 'index'])->name('kritik');
         Route::post('kritik-saran/store', [KritikSaranController::class, 'store'])->name('kritik.store');

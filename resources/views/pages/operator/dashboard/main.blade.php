@@ -31,7 +31,7 @@
                         </div>
 
                     </div>
-                    <h3 class="mb-2"><span class="counter-value" data-target="">{{ $total_order }}</span><small
+                    <h3 class="mb-2"><span class="counter-value" data-target="">{{ $total_pemesanan }}</span><small
                             class="text-muted fs-13"></small></h3>
                     <h6 class="text-muted mb-0">Total Order (Pending)</h6>
                 </div>

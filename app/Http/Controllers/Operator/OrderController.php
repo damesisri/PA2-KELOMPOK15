@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Operator;
 
 use App\Helpers\Helper;
 use PDF;
-use App\Models\Order;
-use App\Models\OrderDetail;
+use App\Models\Pemesanan;
+use App\Models\PemesananDetail;
 use App\Models\Product;
+use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,18 +18,14 @@ class OrderController extends Controller
 {
     public function index(Request $request)
     {
+
         if ($request->ajax()) {
-            $orders = Order::join('users', 'orders.user_id', '=', 'users.id')
-                ->select('orders.*', 'users.name')
-                ->where('orders.status', 'like', '%' . $request->keyword . '%')
-                ->orWhere('users.name', 'like', '%' . $request->keyword . '%')
-                ->orWhere('orders.created_at', 'like', '%' . $request->keyword . '%')
-                ->orWhere('phone', 'like', '%' . $request->keyword . '%')
-                ->orWhere('address', 'like', '%' . $request->keyword . '%')
-                ->orWhere('orders.total', 'like', '%' . $request->keyword . '%')
-                ->orWhere('postal_code', 'like', '%' . $request->keyword . '%')
+            $pemesanan = Pemesanan::where('user_id', 'like', '%' . $request->keyword . '%')
+                ->orWhere('status', 'like', '%' . $request->keyword . '%')
+                ->orWhere('created_at', 'like', '%' . $request->keyword . '%')
+                ->latest()
                 ->paginate(10);
-            return view('pages.operator.orders.list', compact('orders'));
+            return view('pages.operator.orders.list', compact('pemesanan'));
         }
         return view('pages.operator.orders.main');
     }
@@ -39,15 +36,16 @@ class OrderController extends Controller
         return view('pages.operator.orders.create', compact('product'));
     }
 
-    public function show(Order $order)
+    public function show(Pemesanan $pemesanan)
     {
-        return view('pages.operator.orders.show', compact('order'));
+
+        return view('pages.operator.orders.show', compact('pemesanan'));
     }
 
-    public function accept(Order $order)
+    public function accept(Pemesanan $pemesanan)
     {
-        $order->status = 'accepted';
-        $order->save();
+        $pemesanan->status = 'accepted';
+        $pemesanan->save();
 
         return response()->json([
             'alert' => 'success',
@@ -56,27 +54,34 @@ class OrderController extends Controller
     }
     public function makeOrder(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'product_id' => 'required',
             'quantity' => 'required',
         ]);
 
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $validator->errors()->first(),
+            ]);
+        }
+
 
         $product = Product::find($request->product_id);
 
-        $order = new Order();
-        $order->user_id = Auth::user()->id;
-        $order->code = Helper::IDGenerator();
-        $order->payment = 'Cash';
-        $order->status = 'pending';
-        $order->total = $product->price * $request->quantity;
-        $order->save();
+        $pemesanan = new Pemesanan();
+        $pemesanan->user_id = Auth::user()->id;
+        $pemesanan->code = Helper::IDGenerator();
+        $pemesanan->payment = 'Cash';
+        $pemesanan->status = 'pending';
+        $pemesanan->total = $product->price * $request->quantity;
+        $pemesanan->save();
 
-        $orderDetail = new OrderDetail();
-        $orderDetail->order_id = $order->id;
-        $orderDetail->product_id = $request->product_id;
-        $orderDetail->quantity = $request->quantity;
-        $orderDetail->save();
+        $pemesananDetail = new PemesananDetail();
+        $pemesananDetail->transaksipemesanan_id = $pemesanan->id;
+        $pemesananDetail->product_id = $request->product_id;
+        $pemesananDetail->quantity = $request->quantity;
+        $pemesananDetail->save();
 
         return response()->json([
             'alert' => 'success',
@@ -85,20 +90,20 @@ class OrderController extends Controller
         ]);
     }
 
-    public function reject(Order $order)
+    public function reject(Pemesanan $pemesanan)
     {
-        $order->status = 'rejected';
-        $order->save();
+        $pemesanan->status = 'rejected';
+        $pemesanan->save();
 
         return response()->json([
             'alert' => 'success',
             'message' => 'Pesanan berhasil ditolak',
         ]);
     }
-    public function finish(Order $order)
+    public function finish(Pemesanan $pemesanan)
     {
-        $order->status = 'completed';
-        $order->save();
+        $pemesanan->status = 'completed';
+        $pemesanan->save();
 
         return response()->json([
             'alert' => 'success',
@@ -108,8 +113,8 @@ class OrderController extends Controller
     public function pdf()
     {
         $now = Carbon::now()->translatedFormat('l, d F Y');
-        $orders = Order::orderBy('created_at', 'DESC')->get();
-        $pdf = PDF::loadView('pages.operator.orders.pdf', ['orders' => $orders]);
+        $pemesanan = Pemesanan::orderBy('created_at', 'DESC')->get();
+        $pdf = PDF::loadView('pages.operator.orders.pdf', ['pemesanan' => $pemesanan]);
         // return $pdf->stream();
         return $pdf->download($now . '.pdf');
     }

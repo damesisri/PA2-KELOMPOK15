@@ -64,9 +64,9 @@
 
                                 <h3>{{ $food->name }}</h3>
                                 <div class="review">
-                                    <i class="icon-star-full"></i><i class="icon-star-full"></i><i
+                                    {{-- <i class="icon-star-full"></i><i class="icon-star-full"></i><i
                                         class="icon-star-full"></i><i class="icon-star-full"></i><i
-                                        class="icon-star-full"></i> <span>({{ $food->stock }} )</span>
+                                        class="icon-star-full"></i> <span>({{ $food->stock }} )</span> --}}
                                 </div>
                                 <span class="price">Rp{{ $food->price }}</span>
                                 <p>{{ $food->description }}</p>
@@ -74,7 +74,8 @@
                                     <form id="form_cart">
                                         <input type="hidden" name="product_id" value="{{ $food->id }}">
                                         <div class="pro-cart">
-                                            <input name="quantity" type="text" value="1">
+                                            <input name="quantity" type="number" value="1" min="1"
+                                                max="500">
                                             <a id="tombol_cart"
                                                 onclick="add_cart('#tombol_cart', '#form_cart', '{{ route('web.cart.add') }}', 'POST')">add
                                                 to cart</a>
@@ -84,16 +85,6 @@
                                 <span class="categories"><strong>Category:</strong>{{ $food->category }}</span>
                                 <span class="categories"><strong>DesKripsi:</strong>{{ $food->description }}</span>
 
-                                {{-- <div class="social-icons">
-                                    <ul>
-                                        <li><a href="#." class="fb"><i class="icon-facebook-1"></i> <span>Share
-                                                    On Facebook</span></a></li>
-                                        <li><a href="#." class="tw"><i class="icon-twitter-1"></i> <span>Tweet
-                                                    This Product</span></a></li>
-                                        <li><a href="#." class="pi"><i class="icon-pinterest-p"></i> <span>Pin
-                                                    This Product</span></a></li>
-                                    </ul>
-                                </div> --}}
 
                             </div>
                         </div>

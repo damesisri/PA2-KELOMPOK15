@@ -4,7 +4,8 @@ namespace App\Models;
 
 use App\Models\Cart;
 use App\Models\Category;
-use App\Models\OrderDetail;
+use App\Models\Pemesanan;
+use App\Models\PemesananDetail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,7 +13,7 @@ class Product extends Model
 {
     use HasFactory;
 
-     protected $fillable = [
+    protected $fillable = [
         'title',
         'cover',
         'price',
@@ -33,7 +34,12 @@ class Product extends Model
         return $this->hasMany(Cart::class);
     }
 
-    public function orderDetails(){
-        return $this->belongsTo(OrderDetail::class);
+    public function pemesanan()
+    {
+        return $this->belongsTo(Pemesanan::class);
+    }
+    public function pemesananDetails()
+    {
+        return $this->belongsTo(PemesananDetail::class);
     }
 }

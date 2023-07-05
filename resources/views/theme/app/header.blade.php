@@ -24,15 +24,17 @@
             <div class="d-flex align-items-center">
                 <div class="d-flex align-items-center">
                     <div class="dropdown topbar-head-dropdown ms-1 header-item">
-                        <a type="button" href="javascript:;" onclick="tombol_notif();"
-                            class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
-                            id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <i class="bx bx-bell fs-22"></i>
-                            <span
-                                class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger"
-                                id="top-notification-number"></span>
-                        </a>
+                        @if (Auth::user()->role == 'operator')
+                            <a type="button" href="javascript:;" onclick="tombol_notif();"
+                                class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
+                                id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <i class="bx bx-bell fs-22"></i>
+                                <span
+                                    class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger"
+                                    id="top-notification-number"></span>
+                            </a>
+                        @endif
                         <div class="dropdown-menu dropdown-menu-end p-0 " style="width: 25rem"
                             aria-labelledby="page-header-notifications-dropdown">
                             <div class="dropdown-head bg-success bg-pattern rounded-top">

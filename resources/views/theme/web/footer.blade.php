@@ -49,25 +49,13 @@
 
                  <div class="col-md-4">
                      <div class="instagram">
-                         <h4>Instagram</h4>
+                         <h4>Location</h4>
                          <div class="detail">
-                             <div class="col-md-4"><a href="#."><img
-                                         src="{{ asset('assets-user/images/instagram-img1.jpg') }}" alt=""></a>
-                             </div>
-                             <div class="col-md-4"><a href="#."><img
-                                         src="{{ asset('assets-user/images/instagram-img2.jpg') }}" alt=""></a>
-                             </div>
-                             <div class="col-md-4"><a href="#."><img
-                                         src="{{ asset('assets-user/images/instagram-img3.jpg') }}" alt=""></a>
-                             </div>
-                             <div class="col-md-4"><a href="#."><img
-                                         src="{{ asset('assets-user/images/instagram-img4.jpg') }}" alt=""></a>
-                             </div>
-                             <div class="col-md-4"><a href="#."><img
-                                         src="{{ asset('assets-user/images/instagram-img5.jpg') }}" alt=""></a> 
-                             </div>
-                             <div class="col-md-4"><a href="#."><img
-                                         src="{{ asset('assets-user/images/instagram-img6.jpg') }}" alt=""></a>
+                             <div class="col-md-4">
+                                 <iframe
+                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.203514029898!2d98.94134777331195!3d2.0744575588218686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302e6c672766ef6d%3A0x90f63e24962eaf40!2sPemandian%20Air%20Panas%20Karunia!5e0!3m2!1sid!2sid!4v1686503492239!5m2!1sid!2sid"
+                                     width="350" height="375" style="border:0;" allowfullscreen="" loading="lazy"
+                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                              </div>
                          </div>
                      </div>

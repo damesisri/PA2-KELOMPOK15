@@ -116,7 +116,7 @@
                     </div>
                 </div>
                 <div class="hstack gap-2 justify-content-end">
-                    <a class="btn btn-light" href="javascript:;" onclick="load_list(1);">Kembali</a>
+                    <a class="btn btn-light" href="{{ route('admin.hotel.index') }}">Kembali</a>
                 </div>
             </div>
         </div>
